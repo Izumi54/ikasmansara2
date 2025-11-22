@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketplace Alumni</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app-container">
+
+        <!-- Search Header -->
+        <div class="search-header">
+            <div class="search-box">
+                <div class="search-icon">🔍</div>
+                <input type="text" placeholder="Cari kuliner, jasa, fashion...">
+            </div>
+        </div>
+
+        <!-- Categories Chips -->
+        <div class="h-scroll" style="padding: 10px 24px; background:white;">
+            <div class="chip active">Semua</div>
+            <div class="chip">Kuliner</div>
+            <div class="chip">Jasa Pro</div>
+            <div class="chip">Fashion</div>
+            <div class="chip">Properti</div>
+        </div>
+
+        <!-- Product Grid -->
+        <div class="grid-2-col fade-in" style="padding-bottom: 100px;">
+
+            <!-- Item 1 -->
+            <div class="product-card" onclick="alert('Detail Produk')">
+                <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400" class="product-img">
+                <div class="product-info">
+                    <div style="font-size:13px; font-weight:600; margin-bottom:4px; line-height:1.3;">Katering Nasi Box
+                        "Bu Sri"</div>
+                    <div style="font-size:10px; color:#888; margin-bottom:8px;">Sri Wahyuni '98 • Jepara</div>
+                    <div class="product-price">Rp 25.000</div>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=400" class="product-img">
+                <div class="product-info">
+                    <div style="font-size:13px; font-weight:600; margin-bottom:4px; line-height:1.3;">Jasa Desain
+                        Arsitek</div>
+                    <div style="font-size:10px; color:#888; margin-bottom:8px;">Rian Ardi '12 • Online</div>
+                    <div class="product-price">Hubungi Penjual</div>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400" class="product-img">
+                <div class="product-info">
+                    <div style="font-size:13px; font-weight:600; margin-bottom:4px; line-height:1.3;">Kue Kering Lebaran
+                        Premium</div>
+                    <div style="font-size:10px; color:#888; margin-bottom:8px;">Dina Cake '05 • Kudus</div>
+                    <div class="product-price">Rp 85.000</div>
+                </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?w=400" class="product-img">
+                <div class="product-info">
+                    <div style="font-size:13px; font-weight:600; margin-bottom:4px; line-height:1.3;">Kursus Bahasa
+                        Inggris Private</div>
+                    <div style="font-size:10px; color:#888; margin-bottom:8px;">Mr. John '15 • Jepara</div>
+                    <div class="product-price">Rp 500.000/bln</div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- FAB Jual -->
+        <div class="fab" onclick="navigateTo('market-sell.html')">
+            🏷️
+        </div>
+
+        <!-- Bottom Nav -->
+        <nav class="bottom-nav">
+            <a href="home.html" class="nav-item">
+                <div class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg></div>
+                <span>Home</span>
+            </a>
+            <a href="directory.html" class="nav-item">
+                <div class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg></div>
+                <span>Direktori</span>
+            </a>
+            <a href="donation.html" class="nav-item">
+                <div class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                        </path>
+                    </svg></div>
+                <span>Donasi</span>
+            </a>
+            <a href="loker.html" class="nav-item">
+                <div class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                    </svg></div>
+                <span>Loker</span>
+            </a>
+            <a href="forum.html" class="nav-item">
+                <div class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z">
+                        </path>
+                    </svg></div>
+                <span>Forum</span>
+            </a>
+        </nav>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        // Search Functionality
+        const searchInput = document.querySelector('.search-box input');
+        const productCards = document.querySelectorAll('.product-card');
+
+        searchInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+
+            productCards.forEach(card => {
+                const text = card.innerText.toLowerCase();
+                if (text.includes(searchTerm)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+
+        // Filter Chips Functionality
+        const chips = document.querySelectorAll('.chip');
+
+        chips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                // Remove active class from all
+                chips.forEach(c => c.classList.remove('active'));
+                // Add active to clicked
+                chip.classList.add('active');
+
+                const filterType = chip.innerText;
+
+                // Reset all first
+                productCards.forEach(card => card.style.display = 'flex');
+
+                // Demo Filter Logic
+                if (filterType === 'Semua') {
+                    // Show all
+                } else {
+                    // Filter by text content (simple implementation)
+                    // e.g. "Kuliner" will match "Katering", "Kue" if we add hidden tags or just match text
+                    // For now let's match based on specific keywords mapping or just text
+
+                    let keyword = filterType;
+                    if (filterType === 'Jasa Pro') keyword = 'Jasa';
+
+                    filterProducts(keyword);
+                }
+            });
+        });
+
+        function filterProducts(keyword) {
+            productCards.forEach(card => {
+                // Custom logic for demo data
+                let text = card.innerText.toLowerCase();
+                let match = false;
+
+                if (keyword === 'Kuliner' && (text.includes('katering') || text.includes('kue'))) match = true;
+                else if (keyword === 'Jasa' && (text.includes('jasa') || text.includes('kursus'))) match = true;
+                else if (keyword === 'Fashion' && text.includes('baju')) match = true; // No fashion data yet
+                else if (keyword === 'Properti' && text.includes('rumah')) match = true; // No properti data yet
+                else if (text.includes(keyword.toLowerCase())) match = true;
+
+                if (match) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kenangan Sekolah</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <div style="padding: 20px 24px; background: white; position: sticky; top: 0; z-index: 10; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+                <div style="display: flex; align-items: center;">
+                    <div onclick="goBack()" style="font-size: 24px; margin-right: 16px; cursor: pointer;">←</div>
+                    <div>
+                        <h2 style="font-size: 18px; margin: 0;">Kenangan</h2>
+                        <p style="font-size: 11px; color: var(--text-grey);">Lorong waktu SMANSARA</p>
+                    </div>
+                </div>
+                <!-- Year Selector -->
+                <select style="padding: 8px; border-radius: 8px; border: 1px solid #ddd; outline: none; font-size: 12px;">
+                    <option>Semua</option>
+                    <option>1990 - 2000</option>
+                    <option>2001 - 2010</option>
+                    <option>2011 - 2020</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Masonry Grid Gallery -->
+        <div style="padding-top: 16px; padding-bottom: 20px;" class="fade-in">
+            <div class="gallery-grid">
+                
+                <!-- Item 1 -->
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1572578795582-c33180926b75?w=400" class="sepia-filter">
+                    <div class="gallery-overlay">
+                        <div class="gallery-year">1998</div>
+                        <div class="gallery-desc">Upacara Bendera Senin</div>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1529390003868-6c6405e276d6?w=400" class="sepia-filter">
+                    <div class="gallery-overlay">
+                        <div class="gallery-year">2005</div>
+                        <div class="gallery-desc">Pentas Seni (Pensi)</div>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=400" class="sepia-filter">
+                    <div class="gallery-overlay">
+                        <div class="gallery-year">2010</div>
+                        <div class="gallery-desc">Belajar di Perpus</div>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1544531586-fde5298cdd40?w=400" class="sepia-filter">
+                    <div class="gallery-overlay">
+                        <div class="gallery-year">2015</div>
+                        <div class="gallery-desc">Wisuda Angkatan</div>
+                    </div>
+                </div>
+
+                <!-- Item 5 -->
+                <div class="gallery-item" style="grid-column: span 2; height: 250px;">
+                    <img src="https://images.unsplash.com/photo-1469488865564-c2ef10ceb662?w=600" class="sepia-filter">
+                    <div class="gallery-overlay">
+                        <div class="gallery-year">1995</div>
+                        <div class="gallery-desc">Foto Bersama Wali Kelas 3 IPA 2 (Tour Bali)</div>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div style="text-align: center; margin-top: 20px; padding-bottom: 40px;">
+                <button class="btn-outline" style="width: auto; padding: 10px 24px;">Upload Foto Jadul</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forum Diskusi</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .forum-wrapper {
+            padding-bottom: 100px;
+            background: #F9FAFB;
+        }
+
+        /* Create Post Box */
+        .create-post {
+            background: white;
+            padding: 16px 24px;
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            border-bottom: 1px solid #f3f4f6;
+        }
+
+        .cp-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #ddd;
+        }
+
+        .cp-input {
+            flex: 1;
+            background: #F3F4F6;
+            padding: 10px 16px;
+            border-radius: 20px;
+            color: var(--text-grey);
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        /* Categories Tabs */
+        .tabs-wrapper {
+            background: white;
+            padding: 0 24px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .tab-item {
+            display: inline-block;
+            padding: 12px 0;
+            margin-right: 20px;
+            font-size: 14px;
+            color: var(--text-grey);
+            font-weight: 500;
+            border-bottom: 2px solid transparent;
+            cursor: pointer;
+        }
+
+        .tab-item.active {
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        /* Feed Card */
+        .feed-card {
+            background: white;
+            margin-top: 8px;
+            padding: 16px 24px;
+            border-bottom: 1px solid #f3f4f6;
+        }
+
+        .feed-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+
+        .poster-info {
+            display: flex;
+            gap: 10px;
+        }
+
+        .poster-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .poster-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .poster-time {
+            font-size: 11px;
+            color: var(--text-grey);
+        }
+
+        .feed-tag {
+            font-size: 10px;
+            color: var(--secondary);
+            background: #FFF8E1;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        .feed-content {
+            font-size: 14px;
+            line-height: 1.5;
+            color: #374151;
+            margin-bottom: 12px;
+        }
+
+        .feed-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 12px;
+        }
+
+        .feed-actions {
+            display: flex;
+            gap: 20px;
+            border-top: 1px solid #f3f4f6;
+            padding-top: 12px;
+        }
+
+        .action-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            color: var(--text-grey);
+            cursor: pointer;
+        }
+
+        .action-btn svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .action-btn.liked {
+            color: #E0245E;
+        }
+
+        .action-btn.liked svg {
+            fill: #E0245E;
+            stroke: #E0245E;
+        }
+
+        /* Modal Style */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 200;
+            display: none;
+            justify-content: center;
+            align-items: flex-end;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+            animation: fadeIn 0.2s;
+        }
+
+        .modal-content {
+            background: white;
+            width: 100%;
+            max-width: 480px;
+            border-radius: 24px 24px 0 0;
+            padding: 24px;
+            animation: slideUp 0.3s;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(100%);
+            }
+
+            to {
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app-container">
+        <div class="forum-wrapper fade-in">
+
+            <!-- Create Post Trigger -->
+            <div class="create-post" onclick="openModal()">
+                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400" class="cp-avatar"
+                    style="object-fit: cover;">
+                <div class="cp-input">Apa yang Anda pikirkan, Budi?</div>
+            </div>
+
+            <!-- Category Tabs -->
+            <div class="tabs-wrapper h-scroll">
+                <div class="tab-item active">Semua</div>
+                <div class="tab-item">Karir & Loker</div>
+                <div class="tab-item">Nostalgia</div>
+                <div class="tab-item">Bisnis</div>
+            </div>
+
+            <!-- Post 1 (Text Only) -->
+            <div class="feed-card">
+                <div class="feed-header">
+                    <div class="poster-info">
+                        <img src="https://ui-avatars.com/api/?name=Dimas+Setiawan" class="poster-img">
+                        <div>
+                            <div class="poster-name">Dimas Setiawan <span class="feed-tag">2012</span></div>
+                            <div class="poster-time">2 jam yang lalu</div>
+                        </div>
+                    </div>
+                    <div style="color:#ccc">•••</div>
+                </div>
+                <div class="feed-content">
+                    Halo teman-teman, ada yang punya info kontraktor di daerah Jepara untuk renovasi rumah? Mohon
+                    infonya ya terima kasih.
+                </div>
+                <div class="feed-actions">
+                    <div class="action-btn" onclick="toggleLike(this)">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path
+                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                            </path>
+                        </svg>
+                        <span>12</span>
+                    </div>
+                    <div class="action-btn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path
+                                d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z">
+                            </path>
+                        </svg>
+                        <span>5 Komentar</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Post 2 (With Image) -->
+            <div class="feed-card">
+                <div class="feed-header">
+                    <div class="poster-info">
+                        <img src="https://ui-avatars.com/api/?name=Rina+Mulyani" class="poster-img">
+                        <div>
+                            <div class="poster-name">Rina Mulyani <span class="feed-tag">1998</span></div>
+                            <div class="poster-time">5 jam yang lalu</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="feed-content">
+                    Ketemu foto lama pas acara Kartinian tahun 97. Ada yang masih ingat momen ini? 😄 #Nostalgia
+                </div>
+                <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=500" class="feed-image">
+                <div class="feed-actions">
+                    <div class="action-btn liked" onclick="toggleLike(this)">
+                        <svg viewBox="0 0 24 24" fill="#E0245E" stroke="#E0245E" stroke-width="2">
+                            <path
+                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                            </path>
+                        </svg>
+                        <span>45</span>
+                    </div>
+                    <div class="action-btn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path
+                                d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z">
+                            </path>
+                        </svg>
+                        <span>12 Komentar</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Modal Write Post -->
+        <div class="modal-overlay" id="postModal">
+            <div class="modal-content">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    <h3 style="font-size: 18px;">Buat Postingan</h3>
+                    <div onclick="closeModal()" style="cursor: pointer; font-size: 24px;">×</div>
+                </div>
+
+                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400"
+                        style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
+                    <div>
+                        <div style="font-weight: 600; font-size: 14px;">Budi Santoso</div>
+                        <div
+                            style="font-size: 12px; color: var(--text-grey); border: 1px solid #ddd; padding: 2px 8px; border-radius: 12px; display: inline-block; margin-top: 4px;">
+                            Semua Orang ▾</div>
+                    </div>
+                </div>
+
+                <textarea
+                    style="width: 100%; height: 120px; border: none; outline: none; font-size: 16px; resize: none;"
+                    placeholder="Apa yang Anda pikirkan?"></textarea>
+
+                <div
+                    style="border-top: 1px solid #eee; padding-top: 16px; display: flex; justify-content: space-between; align-items: center;">
+                    <div style="display: flex; gap: 16px; color: var(--primary);">
+                        <span>📷</span>
+                        <span>📍</span>
+                        <span>😊</span>
+                    </div>
+                    <button class="btn-primary" style="width: auto; padding: 8px 24px; font-size: 14px;"
+                        onclick="closeModal(); alert('Postingan terkirim!')">Posting</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAB Add Post -->
+        <div class="fab" onclick="openModal()">
+            +
+        </div>
+
+        <!-- Bottom Nav -->
+        <nav class="bottom-nav">
+            <a href="home.html" class="nav-item">
+                <div class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg></div>
+                <span>Home</span>
+            </a>
+            <a href="directory.html" class="nav-item">
+                <div class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg></div>
+                <span>Direktori</span>
+            </a>
+            <a href="donation.html" class="nav-item">
+                <div class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                        </path>
+                    </svg></div>
+                <span>Donasi</span>
+            </a>
+            <a href="loker.html" class="nav-item">
+                <div class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                    </svg></div>
+                <span>Loker</span>
+            </a>
+            <a href="forum.html" class="nav-item active">
+                <div class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z">
+                        </path>
+                    </svg></div>
+                <span>Forum</span>
+            </a>
+        </nav>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // JS Khusus Forum
+        function toggleLike(btn) {
+            btn.classList.toggle('liked');
+            const svg = btn.querySelector('svg');
+            const countSpan = btn.querySelector('span');
+            let count = parseInt(countSpan.innerText);
+
+            if (btn.classList.contains('liked')) {
+                svg.setAttribute('fill', '#E0245E');
+                svg.setAttribute('stroke', '#E0245E');
+                countSpan.innerText = count + 1;
+            } else {
+                svg.setAttribute('fill', 'none');
+                svg.setAttribute('stroke', 'currentColor');
+                countSpan.innerText = count - 1;
+            }
+        }
+
+        // Modal Functions
+        function openModal() {
+            document.getElementById('postModal').classList.add('active');
+        }
+        function closeModal() {
+            document.getElementById('postModal').classList.remove('active');
+        }
+    </script>
+</body>
+
+</html>

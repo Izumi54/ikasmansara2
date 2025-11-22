@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Donasi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app-container" style="background: white;">
+
+        <!-- Hero Image with Back Button -->
+        <div class="hero-image-container">
+            <div class="back-btn-float" onclick="goBack()">←</div>
+            <img src="https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?w=800" class="hero-image">
+            <div
+                style="position: absolute; bottom: -20px; right: 24px; background: #EF4444; color: white; padding: 8px 16px; border-radius: 20px; font-weight: 700; font-size: 12px; box-shadow: 0 4px 10px rgba(239, 68, 68, 0.3);">
+                URGENT
+            </div>
+        </div>
+
+        <!-- Content Box -->
+        <div class="news-content-box fade-in">
+            <div class="news-meta-date">Berakhir dalam 15 hari</div>
+            <h1 class="news-headline">Renovasi Masjid Sekolah SMAN 1 Jepara</h1>
+
+            <!-- Organizer -->
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 24px;">
+                <img src="https://ui-avatars.com/api/?name=Panitia+Masjid"
+                    style="width: 32px; height: 32px; border-radius: 50%;">
+                <span style="font-size: 12px; font-weight: 600;">Oleh: Panitia Pembangunan Masjid</span>
+            </div>
+
+            <!-- Progress Section -->
+            <div
+                style="background: #F9FAFB; padding: 16px; border-radius: 16px; margin-bottom: 24px; border: 1px solid #eee;">
+                <div style="display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 8px;">
+                    <span style="color: var(--primary); font-weight: 700;">Rp 35.000.000</span>
+                    <span style="color: var(--text-grey);">dari Rp 50.000.000</span>
+                </div>
+                <div class="progress-track">
+                    <div class="progress-value" style="width: 70%;"></div>
+                </div>
+                <div
+                    style="display: flex; justify-content: space-between; font-size: 11px; color: var(--text-grey); margin-top: 8px;">
+                    <span>70% Terkumpul</span>
+                    <span>145 Donatur</span>
+                </div>
+            </div>
+
+            <div class="news-body">
+                <p>Masjid sekolah kita yang telah berdiri sejak tahun 1990 kini membutuhkan renovasi mendesak. Atap yang
+                    bocor dan kapasitas yang sudah tidak memadai menjadi alasan utama penggalangan dana ini.</p>
+
+                <p>Kami mengajak seluruh alumni SMAN 1 Jepara untuk bahu-membahu mewujudkan tempat ibadah yang nyaman
+                    bagi adik-adik kita yang sedang menuntut ilmu.</p>
+
+                <img src="https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?w=600"
+                    style="width: 100%; border-radius: 12px; margin: 10px 0;">
+
+                <p>Dana yang terkumpul akan digunakan untuk:</p>
+                <ul style="margin-left: 20px; font-size: 15px; line-height: 1.7; color: #374151; margin-bottom: 16px;">
+                    <li>Perbaikan atap dan plafon</li>
+                    <li>Perluasan area sholat putri</li>
+                    <li>Peremajaan tempat wudhu</li>
+                    <li>Instalasi pendingin ruangan (AC)</li>
+                </ul>
+
+                <p>Setiap rupiah donasi Anda sangat berarti. Mari beramal jariyah untuk masa depan yang lebih baik.</p>
+            </div>
+
+            <!-- Donate Button Sticky -->
+            <div style="position: sticky; bottom: 20px; margin-top: 30px;">
+                <button class="btn-primary" style="box-shadow: 0 10px 20px rgba(0, 106, 78, 0.3);">
+                    Donasi Sekarang
+                </button>
+            </div>
+
+            <!-- Donatur List -->
+            <div style="margin-top: 40px;">
+                <h3 style="font-size: 18px; margin-bottom: 16px;">Donatur Terbaru</h3>
+                <div style="display: flex; flex-direction: column; gap: 12px;">
+                    <div
+                        style="display: flex; align-items: center; gap: 12px; border-bottom: 1px solid #f3f4f6; padding-bottom: 12px;">
+                        <div
+                            style="width: 36px; height: 36px; background: #E0F2FE; color: #0284C7; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 12px;">
+                            BS</div>
+                        <div style="flex: 1;">
+                            <div style="font-size: 13px; font-weight: 600;">Budi Santoso '10</div>
+                            <div style="font-size: 10px; color: var(--text-grey);">2 jam yang lalu</div>
+                        </div>
+                        <div style="font-size: 13px; font-weight: 600; color: var(--primary);">Rp 500.000</div>
+                    </div>
+                    <div
+                        style="display: flex; align-items: center; gap: 12px; border-bottom: 1px solid #f3f4f6; padding-bottom: 12px;">
+                        <div
+                            style="width: 36px; height: 36px; background: #FEF3C7; color: #D97706; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 12px;">
+                            NN</div>
+                        <div style="flex: 1;">
+                            <div style="font-size: 13px; font-weight: 600;">Hamba Allah</div>
+                            <div style="font-size: 10px; color: var(--text-grey);">5 jam yang lalu</div>
+                        </div>
+                        <div style="font-size: 13px; font-weight: 600; color: var(--primary);">Rp 1.000.000</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

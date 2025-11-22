@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loker Saya</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .my-loker-card {
+            background: white;
+            border-radius: 16px;
+            padding: 16px;
+            margin-bottom: 16px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            border: 1px solid #f3f4f6;
+        }
+
+        .loker-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+
+        .loker-status {
+            font-size: 10px;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .status-active {
+            background: #EEFBF6;
+            color: var(--primary);
+        }
+
+        .status-pending {
+            background: #FFF8E1;
+            color: #F59E0B;
+        }
+
+        .loker-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid #f3f4f6;
+        }
+
+        .action-btn {
+            flex: 1;
+            padding: 8px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 500;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .btn-edit {
+            background: #F3F4F6;
+            color: var(--text-dark);
+        }
+
+        .btn-delete {
+            background: #FEE2E2;
+            color: #EF4444;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <div class="header"
+            style="padding: 20px 24px; display: flex; align-items: center; justify-content: space-between;">
+            <div class="back-btn" onclick="window.history.back()" style="cursor: pointer; font-size: 20px;">←</div>
+            <div class="header-title" style="font-size: 18px; font-weight: 600;">Loker Saya</div>
+            <div style="width: 24px;"></div>
+        </div>
+
+        <div class="content fade-in">
+
+            <!-- Item 1 -->
+            <div class="my-loker-card">
+                <div class="loker-header">
+                    <div>
+                        <div style="font-weight: 600; color: var(--text-dark);">Senior Accounting Staff</div>
+                        <div style="font-size: 12px; color: var(--text-grey); margin-top: 4px;">PT. Telkom Indonesia
+                        </div>
+                    </div>
+                    <span class="loker-status status-active">Aktif</span>
+                </div>
+                <div style="font-size: 11px; color: var(--text-grey);">
+                    Diposting: 12 Nov 2023 • Dilihat: 45 kali
+                </div>
+                <div class="loker-actions">
+                    <div class="action-btn btn-edit" onclick="alert('Edit Loker')">Edit</div>
+                    <div class="action-btn btn-delete" onclick="confirm('Hapus loker ini?')">Hapus</div>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="my-loker-card">
+                <div class="loker-header">
+                    <div>
+                        <div style="font-weight: 600; color: var(--text-dark);">Admin Staff</div>
+                        <div style="font-size: 12px; color: var(--text-grey); margin-top: 4px;">CV. Sejahtera Abadi
+                        </div>
+                    </div>
+                    <span class="loker-status status-pending">Menunggu Moderasi</span>
+                </div>
+                <div style="font-size: 11px; color: var(--text-grey);">
+                    Diposting: Hari ini • Dilihat: 0 kali
+                </div>
+                <div class="loker-actions">
+                    <div class="action-btn btn-edit" onclick="alert('Edit Loker')">Edit</div>
+                    <div class="action-btn btn-delete" onclick="confirm('Hapus loker ini?')">Hapus</div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- FAB Add Loker -->
+        <div class="fab" onclick="navigateTo('loker-post.html')">
+            +
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

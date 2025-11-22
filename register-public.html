@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Umum</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .reg-wrapper {
+            padding: 30px 24px;
+            height: 100%;
+            background: white;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <div class="reg-wrapper fade-in">
+            <div onclick="goBack()" style="cursor:pointer; margin-bottom: 20px; font-size: 24px;">←</div>
+            
+            <h2 style="color: var(--primary); margin-bottom: 10px;">Daftar Akun Umum</h2>
+            <p style="color: var(--text-grey); font-size: 14px; margin-bottom: 30px;">
+                Dapatkan akses berita sekolah dan informasi donasi.
+            </p>
+
+            <form onsubmit="event.preventDefault(); alert('Daftar Berhasil');">
+                <div class="input-group">
+                    <label>Nama Lengkap</label>
+                    <input type="text" class="input-field">
+                </div>
+                <div class="input-group">
+                    <label>Kategori</label>
+                    <select class="input-field">
+                        <option>Guru / Staff Sekolah</option>
+                        <option>Masyarakat Umum</option>
+                        <option>Orang Tua Siswa</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Email</label>
+                    <input type="email" class="input-field">
+                </div>
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password" class="input-field">
+                </div>
+                
+                <button type="submit" class="btn-primary" style="margin-top: 20px;">Buat Akun</button>
+            </form>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

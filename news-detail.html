@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Berita</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app-container" style="background: white;">
+
+        <!-- Hero Image with Back Button -->
+        <div class="hero-image-container">
+            <div class="back-btn-float" onclick="goBack()">←</div>
+            <img src="https://images.unsplash.com/photo-1574623452334-1e0ac2b3ccb4?w=800" class="hero-image">
+        </div>
+
+        <!-- Content Box -->
+        <div class="news-content-box fade-in">
+            <div class="news-meta-date">Senin, 20 Mei 2024 • Prestasi</div>
+            <h1 class="news-headline">Tim Basket SMAN 1 Jepara Kembali Sabet Juara DBL Central Java</h1>
+
+            <!-- Author -->
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 24px;">
+                <img src="https://ui-avatars.com/api/?name=Admin+Sekolah"
+                    style="width: 32px; height: 32px; border-radius: 50%;">
+                <span style="font-size: 12px; font-weight: 600;">Oleh: Humas SMANSARA</span>
+            </div>
+
+            <div class="news-body">
+                <p>SMA Negeri 1 Jepara kembali menorehkan prestasi gemilang di kancah olahraga pelajar. Tim basket putra
+                    berhasil mempertahankan gelar juara dalam ajang Developmental Basketball League (DBL) Central Java
+                    Series yang berlangsung di GOR Sahabat, Semarang.</p>
+
+                <p>Kemenangan ini diraih setelah melalui pertandingan sengit melawan rival abadi mereka di partai final.
+                    Dukungan penuh dari para alumni yang tergabung dalam IKA SMANSARA turut memompa semangat para atlit
+                    muda ini.</p>
+
+                <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?w=600"
+                    style="width: 100%; border-radius: 12px; margin: 10px 0;">
+
+                <p>"Kami sangat berterima kasih atas dukungan kakak-kakak alumni yang sudah menyempatkan hadir langsung
+                    di Semarang," ujar Kapten Tim, Rizky (Kelas XII MIPA 1).</p>
+
+                <p>Pihak sekolah berharap prestasi ini dapat terus dipertahankan dan menjadi motivasi bagi kegiatan
+                    ekstrakurikuler lainnya.</p>
+            </div>
+
+            <!-- Share Button -->
+            <button class="btn-outline" style="margin-top: 30px; display: flex; justify-content: center; gap: 10px;">
+                <span>📤</span> Bagikan Berita
+            </button>
+
+            <!-- Related News -->
+            <div style="margin-top: 40px;">
+                <h3 style="font-size: 18px; margin-bottom: 16px;">Berita Terkait</h3>
+                <div class="news-card" style="box-shadow: none; border: 1px solid #eee;">
+                    <div class="news-content">
+                        <div class="news-title">Pembangunan Masjid Sekolah Mencapai 80%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

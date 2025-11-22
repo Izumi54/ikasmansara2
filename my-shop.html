@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lapak Saya</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app-container" style="background: #F9FAFB;">
+
+        <!-- Header -->
+        <div
+            style="padding: 20px 24px; background: white; display: flex; align-items: center; gap: 16px; border-bottom: 1px solid #f3f4f6;">
+            <div onclick="goBack()" style="cursor: pointer; font-size: 20px;">←</div>
+            <h2 style="font-size: 18px; margin: 0;">Lapak Saya</h2>
+        </div>
+
+        <div class="fade-in" style="padding: 24px;">
+
+            <!-- Stats -->
+            <div style="display: flex; gap: 16px; margin-bottom: 24px;">
+                <div
+                    style="flex: 1; background: white; padding: 16px; border-radius: 16px; text-align: center; box-shadow: var(--shadow-card);">
+                    <div style="font-size: 24px; font-weight: 700; color: var(--primary);">5</div>
+                    <div style="font-size: 12px; color: var(--text-grey);">Produk Aktif</div>
+                </div>
+                <div
+                    style="flex: 1; background: white; padding: 16px; border-radius: 16px; text-align: center; box-shadow: var(--shadow-card);">
+                    <div style="font-size: 24px; font-weight: 700; color: var(--secondary);">12</div>
+                    <div style="font-size: 12px; color: var(--text-grey);">Terjual Bulan Ini</div>
+                </div>
+            </div>
+
+            <!-- Add New Button -->
+            <button class="btn-outline" onclick="navigateTo('market-sell.html')"
+                style="margin-bottom: 24px; border-style: dashed;">
+                + Tambah Produk Baru
+            </button>
+
+            <!-- Product List -->
+            <h3 style="font-size: 16px; margin-bottom: 16px;">Daftar Produk</h3>
+
+            <!-- Item 1 -->
+            <div
+                style="background: white; padding: 12px; border-radius: 12px; display: flex; gap: 12px; margin-bottom: 12px; box-shadow: var(--shadow-card);">
+                <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=200"
+                    style="width: 80px; height: 80px; border-radius: 8px; object-fit: cover;">
+                <div style="flex: 1;">
+                    <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">Katering Nasi Box "Bu Sri"</div>
+                    <div style="font-size: 12px; color: var(--primary); font-weight: 600; margin-bottom: 8px;">Rp 25.000
+                    </div>
+                    <div style="display: flex; gap: 8px;">
+                        <button
+                            style="padding: 4px 12px; border: 1px solid #ddd; background: white; border-radius: 6px; font-size: 10px;">Edit</button>
+                        <button
+                            style="padding: 4px 12px; border: 1px solid #EF4444; background: white; color: #EF4444; border-radius: 6px; font-size: 10px;">Hapus</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div
+                style="background: white; padding: 12px; border-radius: 12px; display: flex; gap: 12px; margin-bottom: 12px; box-shadow: var(--shadow-card);">
+                <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=200"
+                    style="width: 80px; height: 80px; border-radius: 8px; object-fit: cover;">
+                <div style="flex: 1;">
+                    <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">Kue Kering Lebaran</div>
+                    <div style="font-size: 12px; color: var(--primary); font-weight: 600; margin-bottom: 8px;">Rp 85.000
+                    </div>
+                    <div style="display: flex; gap: 8px;">
+                        <button
+                            style="padding: 4px 12px; border: 1px solid #ddd; background: white; border-radius: 6px; font-size: 10px;">Edit</button>
+                        <button
+                            style="padding: 4px 12px; border: 1px solid #EF4444; background: white; color: #EF4444; border-radius: 6px; font-size: 10px;">Hapus</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

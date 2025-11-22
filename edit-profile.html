@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Biodata</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app-container" style="background: white;">
+
+        <!-- Header -->
+        <div
+            style="padding: 20px 24px; background: white; display: flex; align-items: center; gap: 16px; border-bottom: 1px solid #f3f4f6;">
+            <div onclick="goBack()" style="cursor: pointer; font-size: 20px;">←</div>
+            <h2 style="font-size: 18px; margin: 0;">Edit Biodata</h2>
+        </div>
+
+        <div class="fade-in" style="padding: 24px;">
+
+            <!-- Avatar Edit -->
+            <div style="display: flex; justify-content: center; margin-bottom: 30px;">
+                <div style="position: relative;">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400"
+                        style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover;">
+                    <div
+                        style="position: absolute; bottom: 0; right: 0; background: var(--primary); color: white; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid white; cursor: pointer;">
+                        ✏️
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form Fields -->
+            <div class="input-group">
+                <label>Nama Lengkap</label>
+                <input type="text" class="input-field" value="Budi Santoso">
+            </div>
+
+            <div class="input-group">
+                <label>Tahun Angkatan</label>
+                <input type="number" class="input-field" value="2010" readonly style="background: #eee; color: #888;">
+            </div>
+
+            <div class="input-group">
+                <label>Nomor WhatsApp</label>
+                <input type="tel" class="input-field" value="081234567890">
+            </div>
+
+            <div class="input-group">
+                <label>Pekerjaan Saat Ini</label>
+                <input type="text" class="input-field" value="Wiraswasta">
+            </div>
+
+            <div class="input-group">
+                <label>Domisili (Kota)</label>
+                <input type="text" class="input-field" value="Jepara">
+            </div>
+
+            <div class="input-group">
+                <label>Bio Singkat</label>
+                <textarea class="input-field" rows="3">Alumni SMANSARA 2010. Hobi futsal dan bisnis kuliner.</textarea>
+            </div>
+
+        </div>
+
+        <!-- Save Button -->
+        <div style="padding: 20px 24px; border-top: 1px solid #f3f4f6;">
+            <button class="btn-primary" onclick="alert('Biodata berhasil disimpan!'); goBack();">Simpan
+                Perubahan</button>
+        </div>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

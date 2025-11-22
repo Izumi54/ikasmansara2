@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masuk</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .login-wrapper {
+            padding: 30px 24px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            background: white;
+        }
+        .back-btn {
+            font-size: 24px;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+        .login-header {
+            margin-bottom: 40px;
+        }
+        .login-header h1 {
+            color: var(--primary);
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        .login-header p {
+            color: var(--text-grey);
+        }
+        .forgot-pass {
+            text-align: right;
+            margin-bottom: 30px;
+        }
+        .forgot-pass a {
+            font-size: 13px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <div class="login-wrapper fade-in">
+            <div class="back-btn" onclick="goBack()">←</div>
+            
+            <div class="login-header">
+                <h1>Selamat Datang<br>Kembali!</h1>
+                <p>Silakan masuk untuk melanjutkan.</p>
+            </div>
+
+            <form onsubmit="event.preventDefault(); navigateTo('home.html');">
+                <div class="input-group">
+                    <label>Email / No HP</label>
+                    <input type="text" class="input-field" placeholder="Masukkan email atau no hp">
+                </div>
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password" class="input-field" placeholder="••••••••">
+                </div>
+
+                <div class="forgot-pass">
+                    <a href="#">Lupa Password?</a>
+                </div>
+
+                <button type="submit" class="btn-primary">Masuk</button>
+            </form>
+
+            <div style="text-align: center; margin-top: 30px; font-size: 14px;">
+                Belum punya akun? <a href="role-selection.html" style="color: var(--primary); font-weight:600; text-decoration: none;">Daftar</a>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - IKA SMANSARA</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .home-wrapper {
+            padding: 24px;
+            padding-bottom: 80px;
+            background: white;
+        }
+
+        /* Header */
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .user-info h2 {
+            font-size: 20px;
+            color: var(--text-dark);
+        }
+
+        .user-info p {
+            font-size: 12px;
+            color: var(--text-grey);
+        }
+
+        .profile-pic {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: #ddd;
+            overflow: hidden;
+        }
+
+        .profile-pic img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Welcome Banner */
+        .welcome-banner {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 20px;
+            padding: 24px;
+            color: white;
+            margin-bottom: 24px;
+            box-shadow: 0 10px 20px rgba(0, 106, 78, 0.2);
+            text-align: center;
+        }
+
+        .welcome-banner h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .welcome-banner p {
+            font-size: 12px;
+            opacity: 0.9;
+            margin-bottom: 16px;
+        }
+
+        .btn-white {
+            background: white;
+            color: var(--primary);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Quick Menu Grid */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 30px;
+        }
+
+        .menu-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+
+        .menu-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--bg-grey);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            transition: 0.2s;
+            color: var(--primary);
+        }
+
+        .menu-item:hover .menu-icon {
+            background: #EEFBF6;
+            transform: translateY(-2px);
+        }
+
+        .menu-label {
+            font-size: 11px;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        /* News Card */
+        .news-card {
+            min-width: 260px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+            background: white;
+            border: 1px solid #f3f4f6;
+        }
+
+        .news-img {
+            width: 100%;
+            height: 140px;
+            background: #ddd;
+            object-fit: cover;
+        }
+
+        .news-content {
+            padding: 12px;
+        }
+
+        .news-tag {
+            font-size: 10px;
+            color: var(--secondary);
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .news-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-top: 4px;
+            line-height: 1.4;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            margin-top: 10px;
+        }
+
+        .section-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .view-all {
+            font-size: 12px;
+            color: var(--primary);
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app-container">
+        <div class="home-wrapper fade-in">
+
+            <!-- 1. Top Bar -->
+            <div class="top-bar">
+                <div class="user-info">
+                    <h2>Halo, Tamu</h2>
+                    <p>Selamat datang di IKA SMANSARA</p>
+                </div>
+                <div class="profile-pic" onclick="alert('Silahkan Login untuk fitur lengkap')">
+                    <img src="https://ui-avatars.com/api/?name=Tamu&background=ddd&color=888">
+                </div>
+            </div>
+
+            <!-- 2. Welcome Banner (No E-KTA) -->
+            <div class="welcome-banner">
+                <h3>Gabung Komunitas Alumni</h3>
+                <p>Dapatkan akses ke jaringan alumni, info loker, dan event eksklusif.</p>
+                <button class="btn-white" onclick="alert('Halaman Registrasi')">Daftar Sekarang</button>
+            </div>
+
+            <!-- 3. Quick Menu (Public Features) -->
+            <div class="menu-grid">
+                <div class="menu-item" onclick="navigateTo('news-list.html')">
+                    <div class="menu-icon">📰</div>
+                    <span class="menu-label">Berita</span>
+                </div>
+                <div class="menu-item" onclick="navigateTo('donation.html')">
+                    <div class="menu-icon">❤️</div>
+                    <span class="menu-label">Donasi</span>
+                </div>
+                <div class="menu-item" onclick="navigateTo('market.html')">
+                    <div class="menu-icon">🛍️</div>
+                    <span class="menu-label">Market</span>
+                </div>
+                <div class="menu-item" onclick="alert('Halaman Tentang Kami')">
+                    <div class="menu-icon">ℹ️</div>
+                    <span class="menu-label">Tentang</span>
+                </div>
+            </div>
+
+            <!-- Donation Slider -->
+            <div class="section-header">
+                <span class="section-title">Program Donasi</span>
+                <a href="donation.html" class="view-all">Lihat Semua</a>
+            </div>
+
+            <div class="h-scroll" style="margin-bottom: 24px;">
+                <!-- Donation 1 -->
+                <div class="news-card" onclick="navigateTo('donation-detail.html')">
+                    <img src="https://images.unsplash.com/photo-1541818767794-863437220013?w=400" class="news-img">
+                    <div class="news-content">
+                        <div class="news-title" style="font-size: 12px;">Renovasi Masjid Sekolah</div>
+                        <div style="margin-top: 8px;">
+                            <div class="progress-track"
+                                style="height: 4px; margin: 4px 0; background: #eee; border-radius: 2px;">
+                                <div class="progress-value"
+                                    style="width: 70%; background: var(--primary); height: 100%; border-radius: 2px;">
+                                </div>
+                            </div>
+                            <div
+                                style="font-size: 9px; color: var(--text-grey); display: flex; justify-content: space-between;">
+                                <span>Terkumpul 70%</span>
+                                <span>Rp 35jt</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Donation 2 -->
+                <div class="news-card" onclick="navigateTo('donation-detail.html')">
+                    <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=400" class="news-img">
+                    <div class="news-content">
+                        <div class="news-title" style="font-size: 12px;">Beasiswa Anak Alumni</div>
+                        <div style="margin-top: 8px;">
+                            <div class="progress-track"
+                                style="height: 4px; margin: 4px 0; background: #eee; border-radius: 2px;">
+                                <div class="progress-value"
+                                    style="width: 62%; background: var(--primary); height: 100%; border-radius: 2px;">
+                                </div>
+                            </div>
+                            <div
+                                style="font-size: 9px; color: var(--text-grey); display: flex; justify-content: space-between;">
+                                <span>Terkumpul 62%</span>
+                                <span>Rp 12.5jt</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. Berita Terbaru -->
+            <div class="section-header">
+                <span class="section-title">Kabar SMANSARA</span>
+                <a href="news-list.html" class="view-all">Lihat Semua</a>
+            </div>
+
+            <div class="h-scroll">
+                <!-- News 1 -->
+                <div class="news-card" onclick="navigateTo('news-detail.html')">
+                    <img src="https://images.unsplash.com/photo-1574623452334-1e0ac2b3ccb4?w=400" class="news-img">
+                    <div class="news-content">
+                        <span class="news-tag">Prestasi</span>
+                        <div class="news-title">Tim Basket SMAN 1 Jepara Juara DBL Central Java</div>
+                    </div>
+                </div>
+                <!-- News 2 -->
+                <div class="news-card" onclick="navigateTo('news-detail.html')">
+                    <img src="https://images.unsplash.com/photo-1544531586-fde5298cdd40?w=400" class="news-img">
+                    <div class="news-content">
+                        <span class="news-tag">Alumni</span>
+                        <div class="news-title">Reuni Perak Angkatan 98 Berlangsung Meriah</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Bottom Navigation (Simplified) -->
+        <nav class="bottom-nav">
+            <a href="home-public.html" class="nav-item active">
+                <div class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg></div>
+                <span>Home</span>
+            </a>
+            <a href="market.html" class="nav-item">
+                <div class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                        </path>
+                    </svg></div>
+                <span>Market</span>
+            </a>
+            <a href="#" class="nav-item" onclick="alert('Silahkan Login')">
+                <div class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+                        <polyline points="10 17 15 12 10 7"></polyline>
+                        <line x1="15" y1="12" x2="3" y2="12"></line>
+                    </svg></div>
+                <span>Login</span>
+            </a>
+        </nav>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Onboarding</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .onboard-wrapper {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 40px 24px;
+            background: white;
+        }
+        .skip-btn {
+            align-self: flex-end;
+            color: var(--text-grey);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+        }
+        .illustration {
+            width: 100%;
+            height: 250px;
+            background-color: #EEFBF6; /* Light Green tint */
+            border-radius: var(--radius-xl);
+            margin: 30px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .content-text h2 {
+            font-size: 24px;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+        .content-text p {
+            color: var(--text-grey);
+            line-height: 1.5;
+            font-size: 15px;
+        }
+        .dots-container {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 30px;
+        }
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #E5E7EB;
+            transition: 0.3s;
+        }
+        .dot.active {
+            background-color: var(--primary);
+            width: 24px;
+            border-radius: 10px;
+        }
+        /* Hide slides logic */
+        .slide { display: none; }
+        .slide.active { display: block; animation: fadeIn 0.5s; }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <div class="onboard-wrapper">
+            <a href="role-selection.html" class="skip-btn">Lewati</a>
+
+            <div id="slide-container">
+                <!-- Slide 1 -->
+                <div class="slide active" id="slide1">
+                    <div class="illustration">
+                        <span style="font-size: 60px;">🤝</span>
+                    </div>
+                    <div class="content-text">
+                        <h2>Terhubung Kembali</h2>
+                        <p>Temukan teman lama seangkatan, bangun jejaring, dan pererat tali silaturahmi SMANSARA.</p>
+                    </div>
+                </div>
+                <!-- Slide 2 -->
+                <div class="slide" id="slide2">
+                    <div class="illustration">
+                        <span style="font-size: 60px;">💼</span>
+                    </div>
+                    <div class="content-text">
+                        <h2>Karir & Bisnis</h2>
+                        <p>Dapatkan info lowongan kerja eksklusif dan promosikan usaha Anda di marketplace alumni.</p>
+                    </div>
+                </div>
+                <!-- Slide 3 -->
+                <div class="slide" id="slide3">
+                    <div class="illustration">
+                        <span style="font-size: 60px;">❤️</span>
+                    </div>
+                    <div class="content-text">
+                        <h2>Kontribusi Sekolah</h2>
+                        <p>Ikut serta dalam memajukan almamater tercinta melalui donasi dan program mentoring.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="dots-container">
+                    <div class="dot active" id="dot1"></div>
+                    <div class="dot" id="dot2"></div>
+                    <div class="dot" id="dot3"></div>
+                </div>
+                <button class="btn-primary" onclick="nextSlide()">Lanjut</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 3;
+
+        function nextSlide() {
+            if(currentSlide < totalSlides) {
+                // Hide current
+                document.getElementById(`slide${currentSlide}`).classList.remove('active');
+                document.getElementById(`dot${currentSlide}`).classList.remove('active');
+                
+                currentSlide++;
+                
+                // Show next
+                document.getElementById(`slide${currentSlide}`).classList.add('active');
+                document.getElementById(`dot${currentSlide}`).classList.add('active');
+                
+                // Change button text on last slide
+                if(currentSlide === totalSlides) {
+                    document.querySelector('.btn-primary').innerText = "Mulai Sekarang";
+                }
+            } else {
+                navigateTo('role-selection.html');
+            }
+        }
+    </script>
+</body>
+</html>

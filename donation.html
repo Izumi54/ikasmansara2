@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donasi IKA SMANSARA</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Custom style untuk Donasi */
+        .donate-hero {
+            background: white;
+            padding: 16px;
+            margin-bottom: 12px;
+            border-radius: 0 0 24px 24px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .campaign-card {
+            background: white;
+            padding: 16px;
+            border-radius: 16px;
+            margin-bottom: 16px;
+            box-shadow: var(--shadow-card);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app-container">
+
+        <!-- Header Simple -->
+        <div style="padding: 20px 24px; background: white; display: flex; align-items: center; gap: 16px;">
+            <div onclick="goBack()" style="cursor: pointer; font-size: 20px;">←</div>
+            <h2 style="font-size: 18px; margin: 0;">Program Donasi</h2>
+        </div>
+
+        <div style="padding: 0 16px 100px 16px; overflow-y: auto;" class="fade-in">
+
+            <!-- Highlight Campaign -->
+            <div class="campaign-card" onclick="navigateTo('donation-detail.html')">
+                <div style="position: relative;">
+                    <img src="https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?w=600"
+                        style="width: 100%; height: 180px; border-radius: 12px; object-fit: cover;">
+                    <div
+                        style="position: absolute; top: 10px; left: 10px; background: #EF4444; color: white; font-size: 10px; padding: 4px 8px; border-radius: 4px; font-weight: 700;">
+                        URGENT</div>
+                </div>
+
+                <h3 style="margin-top: 12px; font-size: 16px; line-height: 1.4;">Renovasi Masjid Sekolah SMAN 1 Jepara
+                </h3>
+                <p style="font-size: 12px; color: var(--text-grey); margin-top: 4px;">Mari bantu adik-adik kita
+                    beribadah dengan nyaman.</p>
+
+                <!-- Progress -->
+                <div style="margin-top: 16px;">
+                    <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 4px;">
+                        <span style="color: var(--primary); font-weight: 600;">Rp 35.000.000</span>
+                        <span style="color: var(--text-grey);">dari Rp 50.000.000</span>
+                    </div>
+                    <div class="progress-track">
+                        <div class="progress-value" style="width: 70%;"></div>
+                    </div>
+                    <div style="text-align: right; font-size: 10px; color: var(--text-grey); margin-top: 4px;">70%
+                        Terkumpul • 145 Donatur</div>
+                </div>
+
+                <button class="btn-primary" style="margin-top: 16px;">Donasi Sekarang</button>
+            </div>
+
+            <!-- Secondary Campaign -->
+            <div class="campaign-card" onclick="navigateTo('donation-detail.html')">
+                <h3 style="font-size: 16px;">Beasiswa Anak Alumni Kurang Mampu</h3>
+                <div style="margin-top: 16px;">
+                    <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 4px;">
+                        <span style="color: var(--primary); font-weight: 600;">Rp 12.500.000</span>
+                        <span style="color: var(--text-grey);">dari Rp 20.000.000</span>
+                    </div>
+                    <div class="progress-track">
+                        <div class="progress-value" style="width: 62%;"></div>
+                    </div>
+                </div>
+                <button class="btn-outline" style="margin-top: 16px; padding: 10px; font-size: 14px;">Donasi</button>
+            </div>
+
+            <!-- Secondary Campaign -->
+            <div class="campaign-card" onclick="navigateTo('donation-detail.html')">
+                <h3 style="font-size: 16px;">Dana Tali Kasih (Alumni Sakit)</h3>
+                <div style="margin-top: 16px;">
+                    <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 4px;">
+                        <span style="color: var(--primary); font-weight: 600;">Rp 2.000.000</span>
+                        <span style="color: var(--text-grey);">Target Fleksibel</span>
+                    </div>
+                    <div class="progress-track">
+                        <div class="progress-value" style="width: 20%;"></div>
+                    </div>
+                </div>
+                <button class="btn-outline" style="margin-top: 16px; padding: 10px; font-size: 14px;">Donasi</button>
+            </div>
+
+        </div>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

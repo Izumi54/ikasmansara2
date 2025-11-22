@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-KTA IKA SMANSARA</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .kta-card {
+            background: linear-gradient(135deg, #006400 0%, #004d00 100%);
+            border-radius: 16px;
+            padding: 24px;
+            color: white;
+            box-shadow: 0 10px 20px rgba(0, 100, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 24px;
+        }
+
+        .kta-pattern {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-image: radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .kta-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .kta-logo {
+            font-weight: 800;
+            font-size: 18px;
+            letter-spacing: 1px;
+        }
+
+        .kta-chip {
+            width: 40px;
+            height: 28px;
+            background: linear-gradient(135deg, #e0e0e0 0%, #bdbdbd 100%);
+            border-radius: 6px;
+            border: 1px solid #9e9e9e;
+        }
+
+        .kta-number {
+            font-family: 'Courier New', monospace;
+            font-size: 22px;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .kta-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            position: relative;
+            z-index: 1;
+        }
+
+        .kta-label {
+            font-size: 10px;
+            opacity: 0.8;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .kta-value {
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .qr-code {
+            background: white;
+            padding: 4px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app-container" style="background: white;">
+
+        <!-- Header -->
+        <div style="padding: 20px 24px; background: white; display: flex; align-items: center; gap: 16px;">
+            <div onclick="goBack()" style="cursor: pointer; font-size: 20px;">←</div>
+            <h2 style="font-size: 18px; margin: 0;">Kartu Anggota Digital</h2>
+        </div>
+
+        <div class="fade-in" style="padding: 24px;">
+
+            <!-- E-KTA Card -->
+            <div class="kta-card">
+                <div class="kta-pattern"></div>
+                <div class="kta-header">
+                    <div class="kta-logo">IKA SMANSARA</div>
+                    <div class="kta-chip"></div>
+                </div>
+                <div class="kta-number">1998 2023 0045 8821</div>
+                <div class="kta-footer">
+                    <div>
+                        <div class="kta-label">Nama Anggota</div>
+                        <div class="kta-value">Budi Santoso</div>
+                        <div class="kta-label" style="margin-top: 12px;">Angkatan</div>
+                        <div class="kta-value">2010</div>
+                    </div>
+                    <div class="qr-code">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=60x60&data=1998202300458821"
+                            style="width: 60px; height: 60px; display: block;">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Actions -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                <button class="btn-outline" onclick="alert('Fitur Download sedang diproses...')"
+                    style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    Download
+                </button>
+                <button class="btn-outline" onclick="alert('Fitur Share sedang diproses...')"
+                    style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="18" cy="5" r="3"></circle>
+                        <circle cx="6" cy="12" r="3"></circle>
+                        <circle cx="18" cy="19" r="3"></circle>
+                        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                    </svg>
+                    Share
+                </button>
+            </div>
+
+            <div
+                style="margin-top: 32px; padding: 16px; background: #F9FAFB; border-radius: 12px; font-size: 12px; color: var(--text-grey); line-height: 1.6;">
+                <strong>Catatan:</strong><br>
+                Kartu ini adalah bukti keanggotaan resmi IKA SMANSARA. Tunjukkan kartu ini untuk mendapatkan benefit
+                khusus di merchant rekanan.
+            </div>
+
+        </div>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

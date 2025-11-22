@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pasang Lowongan Kerja</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .form-input,
+        .form-select,
+        .form-textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+            outline: none;
+            transition: 0.2s;
+        }
+
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            border-color: var(--primary);
+        }
+
+        .form-textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 14px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 24px;
+        }
+
+        .content {
+            padding: 24px;
+            padding-bottom: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <div class="header"
+            style="padding: 20px 24px; display: flex; align-items: center; justify-content: space-between;">
+            <div class="back-btn" onclick="window.history.back()" style="cursor: pointer; font-size: 20px;">←</div>
+            <div class="header-title" style="font-size: 18px; font-weight: 600;">Pasang Lowongan</div>
+            <div style="width: 24px;"></div>
+        </div>
+
+        <div class="content fade-in">
+            <form
+                onsubmit="event.preventDefault(); alert('Lowongan berhasil diposting! Menunggu moderasi admin.'); window.history.back();">
+
+                <div class="form-group">
+                    <label class="form-label">Posisi / Jabatan</label>
+                    <input type="text" class="form-input" placeholder="Contoh: Senior Marketing Staff" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Nama Perusahaan</label>
+                    <input type="text" class="form-input" placeholder="Contoh: PT. Maju Mundur" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Tipe Pekerjaan</label>
+                    <select class="form-select" required>
+                        <option value="">Pilih Tipe</option>
+                        <option value="Fulltime">Fulltime</option>
+                        <option value="Parttime">Parttime</option>
+                        <option value="Internship">Internship</option>
+                        <option value="Freelance">Freelance</option>
+                        <option value="Remote">Remote</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Lokasi</label>
+                    <input type="text" class="form-input" placeholder="Contoh: Jakarta Selatan / Remote" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Kisaran Gaji (Opsional)</label>
+                    <input type="text" class="form-input" placeholder="Contoh: 5jt - 8jt / Negotiable">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Deskripsi Pekerjaan & Syarat</label>
+                    <textarea class="form-textarea"
+                        placeholder="Tuliskan detail pekerjaan, kualifikasi, dan cara melamar..." required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Link / Email Lamaran</label>
+                    <input type="text" class="form-input" placeholder="Contoh: hr@perusahaan.com atau link form"
+                        required>
+                </div>
+
+                <button type="submit" class="btn-submit">Posting Lowongan</button>
+            </form>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

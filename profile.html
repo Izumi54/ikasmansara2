@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Saya</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app-container" style="background: #F9FAFB;">
+
+        <!-- Header & Avatar -->
+        <div class="profile-header-bg"></div>
+
+        <div class="profile-avatar-wrapper">
+            <div
+                style="width: 100px; height: 100px; border-radius: 50%; background: white; padding: 4px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400"
+                    style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+            </div>
+            <h2 style="margin-top: 12px; font-size: 20px; color: var(--text-dark);">Budi Santoso <span
+                    style="color:var(--primary); font-size:16px;">✓</span></h2>
+            <p style="font-size: 12px; color: var(--text-grey);">Alumni Angkatan 2010</p>
+
+            <!-- Stats -->
+            <div style="display: flex; gap: 30px; margin-top: 20px;">
+                <div style="text-align: center;">
+                    <div style="font-weight: 700; color: var(--text-dark);">12</div>
+                    <div style="font-size: 10px; color: var(--text-grey);">Postingan</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-weight: 700; color: var(--text-dark);">5</div>
+                    <div style="font-size: 10px; color: var(--text-grey);">Lapak</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-weight: 700; color: var(--text-dark);">200k</div>
+                    <div style="font-size: 10px; color: var(--text-grey);">Donasi</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menu List -->
+        <div class="menu-list fade-in">
+            <div class="menu-row" onclick="navigateTo('edit-profile.html')">
+                <span style="margin-right: 12px;">✏️</span>
+                <span style="flex: 1; font-size: 14px;">Edit Biodata</span>
+                <span style="color: #ccc;">›</span>
+            </div>
+            <div class="menu-row" onclick="navigateTo('ekta.html')">
+                <span style="margin-right: 12px;">💳</span>
+                <span style="flex: 1; font-size: 14px;">Kartu Anggota (E-KTA)</span>
+                <span style="color: #ccc;">›</span>
+            </div>
+            <div class="menu-row" onclick="navigateTo('my-loker.html')">
+                <span style="margin-right: 12px;">💼</span>
+                <span style="flex: 1; font-size: 14px;">Loker Saya</span>
+                <span style="color: #ccc;">›</span>
+            </div>
+            <div class="menu-row" onclick="navigateTo('my-shop.html')">
+                <span style="margin-right: 12px;">💼</span>
+                <span style="flex: 1; font-size: 14px;">Lapak Saya</span>
+                <span style="color: #ccc;">›</span>
+            </div>
+        </div>
+
+        <!-- Privacy Settings -->
+        <h3 style="padding: 0 24px; font-size: 14px; color: var(--text-grey); margin-bottom: 8px;">Privasi & Keamanan
+        </h3>
+        <div class="menu-list fade-in">
+            <div class="menu-row">
+                <div style="flex: 1;">
+                    <div style="font-size: 14px; font-weight: 500;">Tampilkan No HP</div>
+                    <div style="font-size: 10px; color: var(--text-grey);">Agar alumni lain bisa menghubungi</div>
+                </div>
+                <label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div class="menu-row">
+                <div style="flex: 1;">
+                    <div style="font-size: 14px; font-weight: 500;">Tampilkan Alamat</div>
+                    <div style="font-size: 10px; color: var(--text-grey);">Hanya kota/kabupaten yang muncul</div>
+                </div>
+                <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+
+        <div style="padding: 20px 24px 100px 24px;">
+            <button onclick="window.location.href='login.html'"
+                style="width: 100%; padding: 14px; border: 1px solid #EF4444; color: #EF4444; background: white; border-radius: 12px; font-weight: 600; cursor: pointer;">Keluar
+                Akun</button>
+            <div style="text-align: center; margin-top: 20px; font-size: 10px; color: #ccc;">Versi Aplikasi 1.0.0</div>
+        </div>
+
+        <!-- Bottom Nav -->
+        <nav class="bottom-nav">
+            <a href="home.html" class="nav-item">
+                <div class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg></div>
+                <span>Home</span>
+            </a>
+            <a href="directory.html" class="nav-item">
+                <div class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg></div>
+                <span>Direktori</span>
+            </a>
+            <a href="donation.html" class="nav-item">
+                <div class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                        </path>
+                    </svg></div>
+                <span>Donasi</span>
+            </a>
+            <a href="loker.html" class="nav-item">
+                <div class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                    </svg></div>
+                <span>Loker</span>
+            </a>
+            <a href="forum.html" class="nav-item">
+                <div class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z">
+                        </path>
+                    </svg></div>
+                <span>Forum</span>
+            </a>
+        </nav>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
