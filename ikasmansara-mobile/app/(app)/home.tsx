@@ -26,6 +26,10 @@ export default function Home() {
                 <TouchableOpacity style={styles.btnLogout} onPress={handleLogout}>
                     <Text style={styles.btnText}>Keluar</Text>
                 </TouchableOpacity>
+
+                <TouchableOpacity style={[styles.btnLogout, { marginTop: 10, backgroundColor: '#006A4E' }]} onPress={() => router.push('/(app)/forum')}>
+                    <Text style={styles.btnText}>Ke Forum</Text>
+                </TouchableOpacity>
             </View>
         </SafeAreaView>
     );
