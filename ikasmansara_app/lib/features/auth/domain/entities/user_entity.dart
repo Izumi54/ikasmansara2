@@ -5,6 +5,7 @@ class UserEntity {
   final String? avatar;
   final String role; // 'alumni' or 'guest'
   final bool isVerified;
+  final int? angkatan;
 
   const UserEntity({
     required this.id,
@@ -13,5 +14,8 @@ class UserEntity {
     this.avatar,
     required this.role,
     this.isVerified = false,
+    this.angkatan,
   });
+
+  String? get avatarUrl => avatar;
 }

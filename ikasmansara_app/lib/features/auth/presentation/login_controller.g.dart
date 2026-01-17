@@ -6,49 +6,21 @@ part of 'login_controller.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: type=lint, type=warning
-
-@ProviderFor(LoginController)
-final loginControllerProvider = LoginControllerProvider._();
-
-final class LoginControllerProvider
-    extends $AsyncNotifierProvider<LoginController, UserEntity?> {
-  LoginControllerProvider._()
-    : super(
-        from: null,
-        argument: null,
-        retry: null,
-        name: r'loginControllerProvider',
-        isAutoDispose: true,
-        dependencies: null,
-        $allTransitiveDependencies: null,
-      );
-
-  @override
-  String debugGetCreateSourceHash() => _$loginControllerHash();
-
-  @$internal
-  @override
-  LoginController create() => LoginController();
-}
-
 String _$loginControllerHash() => r'8e453f30aeca4b4b1b6657426202baf4d1c2d567';
 
-abstract class _$LoginController extends $AsyncNotifier<UserEntity?> {
-  FutureOr<UserEntity?> build();
-  @$mustCallSuper
-  @override
-  void runBuild() {
-    final ref = this.ref as $Ref<AsyncValue<UserEntity?>, UserEntity?>;
-    final element =
-        ref.element
-            as $ClassProviderElement<
-              AnyNotifier<AsyncValue<UserEntity?>, UserEntity?>,
-              AsyncValue<UserEntity?>,
-              Object?,
-              Object?
-            >;
-    element.handleCreate(ref, build);
-  }
-}
+/// See also [LoginController].
+@ProviderFor(LoginController)
+final loginControllerProvider =
+    AutoDisposeAsyncNotifierProvider<LoginController, UserEntity?>.internal(
+      LoginController.new,
+      name: r'loginControllerProvider',
+      debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+          ? null
+          : _$loginControllerHash,
+      dependencies: null,
+      allTransitiveDependencies: null,
+    );
+
+typedef _$LoginController = AutoDisposeAsyncNotifier<UserEntity?>;
+// ignore_for_file: type=lint
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

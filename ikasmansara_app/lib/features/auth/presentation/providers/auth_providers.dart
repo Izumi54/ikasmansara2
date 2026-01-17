@@ -1,11 +1,12 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:ikasmansara_app/core/network/pocketbase_service.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ikasmansara_app/core/network/providers.dart';
 import 'package:ikasmansara_app/features/auth/data/datasources/auth_remote_data_source.dart';
 import 'package:ikasmansara_app/features/auth/data/repositories/auth_repository_impl.dart';
 import 'package:ikasmansara_app/features/auth/domain/repositories/auth_repository.dart';
 import 'package:ikasmansara_app/features/auth/domain/usecases/login_user.dart';
 import 'package:ikasmansara_app/features/auth/domain/usecases/register_alumni.dart';
+import 'package:ikasmansara_app/features/auth/domain/entities/user_entity.dart';
 
 part 'auth_providers.g.dart';
 
@@ -34,4 +35,10 @@ LoginUser loginUser(Ref ref) {
 RegisterAlumni registerAlumni(Ref ref) {
   final repository = ref.watch(authRepositoryProvider);
   return RegisterAlumni(repository);
+}
+
+@riverpod
+Future<UserEntity?> currentUser(Ref ref) async {
+  final dataSource = ref.watch(authRemoteDataSourceProvider);
+  return await dataSource.getCurrentUser();
 }

@@ -6,58 +6,22 @@ part of 'register_controller.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: type=lint, type=warning
-
-@ProviderFor(RegisterController)
-final registerControllerProvider = RegisterControllerProvider._();
-
-final class RegisterControllerProvider
-    extends $NotifierProvider<RegisterController, RegisterState> {
-  RegisterControllerProvider._()
-    : super(
-        from: null,
-        argument: null,
-        retry: null,
-        name: r'registerControllerProvider',
-        isAutoDispose: true,
-        dependencies: null,
-        $allTransitiveDependencies: null,
-      );
-
-  @override
-  String debugGetCreateSourceHash() => _$registerControllerHash();
-
-  @$internal
-  @override
-  RegisterController create() => RegisterController();
-
-  /// {@macro riverpod.override_with_value}
-  Override overrideWithValue(RegisterState value) {
-    return $ProviderOverride(
-      origin: this,
-      providerOverride: $SyncValueProvider<RegisterState>(value),
-    );
-  }
-}
-
 String _$registerControllerHash() =>
     r'd17536295c38aaa383764cd973702aff5119b1e3';
 
-abstract class _$RegisterController extends $Notifier<RegisterState> {
-  RegisterState build();
-  @$mustCallSuper
-  @override
-  void runBuild() {
-    final ref = this.ref as $Ref<RegisterState, RegisterState>;
-    final element =
-        ref.element
-            as $ClassProviderElement<
-              AnyNotifier<RegisterState, RegisterState>,
-              RegisterState,
-              Object?,
-              Object?
-            >;
-    element.handleCreate(ref, build);
-  }
-}
+/// See also [RegisterController].
+@ProviderFor(RegisterController)
+final registerControllerProvider =
+    AutoDisposeNotifierProvider<RegisterController, RegisterState>.internal(
+      RegisterController.new,
+      name: r'registerControllerProvider',
+      debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+          ? null
+          : _$registerControllerHash,
+      dependencies: null,
+      allTransitiveDependencies: null,
+    );
+
+typedef _$RegisterController = AutoDisposeNotifier<RegisterState>;
+// ignore_for_file: type=lint
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

@@ -3,7 +3,7 @@ import '../../core/theme/app_colors.dart';
 import '../../core/theme/app_text_styles.dart';
 
 class CustomTextField extends StatefulWidget {
-  final String label;
+  final String? label;
   final String? hint;
   final TextEditingController controller;
   final String? Function(String?)? validator;
@@ -14,10 +14,11 @@ class CustomTextField extends StatefulWidget {
   final bool readOnly;
   final VoidCallback? onTap;
   final void Function(String)? onChanged;
+  final int maxLines;
 
   const CustomTextField({
     super.key,
-    required this.label,
+    this.label,
     required this.controller,
     this.hint,
     this.validator,
@@ -28,6 +29,7 @@ class CustomTextField extends StatefulWidget {
     this.readOnly = false,
     this.onTap,
     this.onChanged,
+    this.maxLines = 1,
   });
 
   @override
@@ -42,17 +44,22 @@ class _CustomTextFieldState extends State<CustomTextField> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          widget.label,
-          style: AppTextStyles.bodyMedium.copyWith(fontWeight: FontWeight.w600),
-        ),
-        const SizedBox(height: 8),
+        if (widget.label != null) ...[
+          Text(
+            widget.label!,
+            style: AppTextStyles.bodyMedium.copyWith(
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+          const SizedBox(height: 8),
+        ],
         TextFormField(
           controller: widget.controller,
           validator: widget.validator,
           keyboardType: widget.keyboardType,
           obscureText: widget.isPassword ? _obscureText : false,
           readOnly: widget.readOnly,
+          maxLines: widget.isPassword ? 1 : widget.maxLines,
           onTap: widget.onTap,
           onChanged: widget.onChanged,
           style: AppTextStyles.bodyLarge,

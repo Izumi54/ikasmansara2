@@ -1,139 +1,161 @@
-import 'package:flutter/material.dart';
-import '../../core/theme/app_colors.dart';
-import '../../core/theme/app_text_styles.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class PostCard extends StatelessWidget {
-  final String userName;
-  final String? userAvatar;
-  final String date; // e.g. "2 jam yang lalu"
-  final String content;
-  final String? imageUrl;
-  final int likeCount;
-  final int commentCount;
-  final bool isLiked;
-  final VoidCallback onLike;
-  final VoidCallback onComment;
-  final VoidCallback onTap;
+import 'package:ikasmansara_app/core/theme/app_colors.dart';
+import 'package:ikasmansara_app/core/theme/app_text_styles.dart';
+import 'package:ikasmansara_app/core/utils/formatters.dart';
+import 'package:ikasmansara_app/features/forum/domain/entities/post_entity.dart';
+import 'package:ikasmansara_app/features/forum/presentation/forum_controller.dart';
 
-  const PostCard({
-    super.key,
-    required this.userName,
-    this.userAvatar,
-    required this.date,
-    required this.content,
-    this.imageUrl,
-    required this.likeCount,
-    required this.commentCount,
-    this.isLiked = false,
-    required this.onLike,
-    required this.onComment,
-    required this.onTap,
-  });
+class PostCard extends ConsumerWidget {
+  final PostEntity post;
+  final VoidCallback? onTap;
+
+  const PostCard({super.key, required this.post, this.onTap});
 
   @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Card(
-        color: Colors.white,
-        margin: const EdgeInsets.only(bottom: 8),
-        elevation: 1,
+  Widget build(BuildContext context, WidgetRef ref) {
+    return Card(
+      margin: const EdgeInsets.only(bottom: 16),
+      elevation: 2,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(12),
         child: Padding(
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.all(16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Header
+              // Header: Author & Date
               Row(
                 children: [
                   CircleAvatar(
-                    backgroundImage: userAvatar != null
-                        ? CachedNetworkImageProvider(userAvatar!)
+                    backgroundImage:
+                        (post.author?.avatarUrl != null &&
+                            post.author!.avatarUrl!.isNotEmpty)
+                        ? CachedNetworkImageProvider(post.author!.avatarUrl!)
                         : null,
-                    radius: 20,
-                    child: userAvatar == null ? const Icon(Icons.person) : null,
+                    child:
+                        (post.author?.avatarUrl == null ||
+                            post.author!.avatarUrl!.isEmpty)
+                        ? const Icon(Icons.person)
+                        : null,
                   ),
                   const SizedBox(width: 12),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        userName,
+                        post.author?.name ?? 'Pengguna',
                         style: AppTextStyles.bodyMedium.copyWith(
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      Text(date, style: AppTextStyles.caption),
+                      Text(
+                        Formatters.date(post.createdAt),
+                        style: AppTextStyles.caption.copyWith(
+                          color: Colors.grey,
+                        ),
+                      ),
                     ],
+                  ),
+                  const Spacer(),
+                  Container(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 8,
+                      vertical: 4,
+                    ),
+                    decoration: BoxDecoration(
+                      color: AppColors.primary.withValues(alpha: 0.1),
+                      borderRadius: BorderRadius.circular(4),
+                    ),
+                    child: Text(
+                      post.category,
+                      style: AppTextStyles.caption.copyWith(
+                        color: AppColors.primary,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
                   ),
                 ],
               ),
               const SizedBox(height: 12),
+
               // Content
-              Text(content, style: AppTextStyles.bodyMedium),
-              if (imageUrl != null) ...[
-                const SizedBox(height: 12),
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(8),
-                  child: CachedNetworkImage(
-                    imageUrl: imageUrl!,
-                    fit: BoxFit.cover,
-                    width: double.infinity,
-                    height: 200,
+              Text(
+                post.content,
+                style: AppTextStyles.bodyMedium,
+                maxLines: 4,
+                overflow: TextOverflow.ellipsis,
+              ),
+              const SizedBox(height: 12),
+
+              // Images
+              if (post.images.isNotEmpty)
+                Container(
+                  height: 200,
+                  width: double.infinity,
+                  margin: const EdgeInsets.only(bottom: 12),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                    image: DecorationImage(
+                      image: CachedNetworkImageProvider(post.images.first),
+                      fit: BoxFit.cover,
+                    ),
                   ),
+                  // If multiple images are supported in future, add indicator/grid here
                 ),
-              ],
-              const SizedBox(height: 16),
-              // Actions
+
+              // Footer: Actions (Like & Comment Counts)
               Row(
                 children: [
-                  _ActionButton(
-                    icon: isLiked ? Icons.thumb_up : Icons.thumb_up_outlined,
-                    label: '$likeCount',
-                    color: isLiked ? AppColors.primary : AppColors.textGrey,
-                    onTap: onLike,
+                  InkWell(
+                    onTap: () {
+                      ref
+                          .read(forumControllerProvider.notifier)
+                          .toggleLike(post.id);
+                    },
+                    child: Row(
+                      children: [
+                        Icon(
+                          post.isLiked ? Icons.favorite : Icons.favorite_border,
+                          color: post.isLiked ? Colors.red : Colors.grey,
+                          size: 20,
+                        ),
+                        const SizedBox(width: 4),
+                        Text(
+                          '${post.likesCount}',
+                          style: AppTextStyles.bodySmall.copyWith(
+                            color: post.isLiked ? Colors.red : Colors.grey,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                   const SizedBox(width: 24),
-                  _ActionButton(
-                    icon: Icons.chat_bubble_outline,
-                    label: '$commentCount',
-                    color: AppColors.textGrey,
-                    onTap: onComment,
+                  Row(
+                    children: [
+                      const Icon(
+                        Icons.comment_outlined,
+                        size: 20,
+                        color: Colors.grey,
+                      ),
+                      const SizedBox(width: 4),
+                      Text(
+                        'Komentar', // Actual count requires separate fetch or field
+                        style: AppTextStyles.bodySmall.copyWith(
+                          color: Colors.grey,
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
             ],
           ),
         ),
-      ),
-    );
-  }
-}
-
-class _ActionButton extends StatelessWidget {
-  final IconData icon;
-  final String label;
-  final Color color;
-  final VoidCallback onTap;
-
-  const _ActionButton({
-    required this.icon,
-    required this.label,
-    required this.color,
-    required this.onTap,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onTap,
-      child: Row(
-        children: [
-          Icon(icon, size: 20, color: color),
-          const SizedBox(width: 4),
-          Text(label, style: AppTextStyles.bodySmall.copyWith(color: color)),
-        ],
       ),
     );
   }

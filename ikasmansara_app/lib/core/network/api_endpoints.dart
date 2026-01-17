@@ -6,4 +6,6 @@ class ApiEndpoints {
   static const String donations = 'donations';
   static const String forumPosts = 'forum_posts';
   static const String forumComments = 'forum_comments';
+
+  static Null get baseUrl => null;
 }

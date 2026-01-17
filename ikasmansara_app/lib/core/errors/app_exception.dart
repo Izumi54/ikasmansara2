@@ -27,10 +27,20 @@ class AppException implements Exception {
         originalError: error,
       );
     }
-    return AppException(
+    return AppException.unknown(
       message: 'Terjadi kesalahan yang tidak diketahui',
-      type: AppErrorType.unknown,
       originalError: error,
+    );
+  }
+
+  factory AppException.unknown({
+    required String message,
+    dynamic originalError,
+  }) {
+    return AppException(
+      message: message,
+      type: AppErrorType.unknown,
+      originalError: originalError,
     );
   }
 

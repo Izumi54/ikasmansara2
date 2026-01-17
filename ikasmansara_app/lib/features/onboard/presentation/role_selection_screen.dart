@@ -69,7 +69,7 @@ class RoleSelectionScreen extends StatelessWidget {
                 text: 'MASYARAKAT UMUM',
                 onPressed: () {
                   // Guest mode logic or separate login
-                  context.push('/login'); // Sementara arahkan ke login juga
+                  context.push('/home'); // Masuk sebagai Guest
                 },
               ),
               const SizedBox(height: 32),

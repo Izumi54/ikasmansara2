@@ -9,6 +9,7 @@ class UserModel extends UserEntity {
     super.avatar,
     required super.role,
     super.isVerified,
+    super.angkatan,
   });
 
   factory UserModel.fromRecord(RecordModel record) {
@@ -17,10 +18,15 @@ class UserModel extends UserEntity {
       email: record.getStringValue('email'),
       name: record.getStringValue('name'),
       avatar: record.getStringValue('avatar').isNotEmpty
-          ? record.getStringValue('avatar')
+          ? record.collectionId.isNotEmpty
+                ? Uri.parse(
+                    '${const String.fromEnvironment('POCKETBASE_URL', defaultValue: 'http://127.0.0.1:8090')}/api/files/${record.collectionId}/${record.id}/${record.getStringValue('avatar')}',
+                  ).toString()
+                : null
           : null,
-      role: record.getStringValue('role'), // 'alumni' or 'guest'
+      role: record.getStringValue('role'),
       isVerified: record.getBoolValue('verified'),
+      angkatan: record.getIntValue('angkatan'),
     );
   }
 
@@ -32,6 +38,7 @@ class UserModel extends UserEntity {
       avatar: entity.avatar,
       role: entity.role,
       isVerified: entity.isVerified,
+      angkatan: entity.angkatan,
     );
   }
 }

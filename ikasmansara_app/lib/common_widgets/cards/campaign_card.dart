@@ -6,7 +6,7 @@ import '../../core/utils/formatters.dart';
 
 class CampaignCard extends StatelessWidget {
   final String title;
-  final String imageUrl;
+  final String? imageUrl; // Make nullable to support placeholder
   final double currentAmount;
   final double targetAmount;
   final int daysLeft;
@@ -16,7 +16,7 @@ class CampaignCard extends StatelessWidget {
   const CampaignCard({
     super.key,
     required this.title,
-    required this.imageUrl,
+    this.imageUrl, // Now optional
     required this.currentAmount,
     required this.targetAmount,
     required this.daysLeft,
@@ -47,14 +47,23 @@ class CampaignCard extends StatelessWidget {
                   ),
                   child: AspectRatio(
                     aspectRatio: 16 / 9,
-                    child: CachedNetworkImage(
-                      imageUrl: imageUrl,
-                      fit: BoxFit.cover,
-                      placeholder: (context, url) =>
-                          Container(color: Colors.grey[200]),
-                      errorWidget: (context, url, error) =>
-                          Container(color: Colors.grey[200]),
-                    ),
+                    child: imageUrl != null
+                        ? CachedNetworkImage(
+                            imageUrl: imageUrl!,
+                            fit: BoxFit.cover,
+                            placeholder: (context, url) =>
+                                Container(color: Colors.grey[200]),
+                            errorWidget: (context, url, error) =>
+                                Container(color: Colors.grey[200]),
+                          )
+                        : Container(
+                            color: AppColors.background,
+                            child: Icon(
+                              Icons.image_outlined,
+                              size: 48,
+                              color: AppColors.textGrey,
+                            ),
+                          ),
                   ),
                 ),
                 if (isUrgent)

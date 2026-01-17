@@ -6,52 +6,23 @@ part of 'providers.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: type=lint, type=warning
+String _$pocketBaseServiceHash() => r'b0163d6faee465af523655c0ba185297851652de';
 
+/// See also [pocketBaseService].
 @ProviderFor(pocketBaseService)
-final pocketBaseServiceProvider = PocketBaseServiceProvider._();
-
-final class PocketBaseServiceProvider
-    extends
-        $FunctionalProvider<
-          PocketBaseService,
-          PocketBaseService,
-          PocketBaseService
-        >
-    with $Provider<PocketBaseService> {
-  PocketBaseServiceProvider._()
-    : super(
-        from: null,
-        argument: null,
-        retry: null,
-        name: r'pocketBaseServiceProvider',
-        isAutoDispose: true,
-        dependencies: null,
-        $allTransitiveDependencies: null,
-      );
-
-  @override
-  String debugGetCreateSourceHash() => _$pocketBaseServiceHash();
-
-  @$internal
-  @override
-  $ProviderElement<PocketBaseService> $createElement(
-    $ProviderPointer pointer,
-  ) => $ProviderElement(pointer);
-
-  @override
-  PocketBaseService create(Ref ref) {
-    return pocketBaseService(ref);
-  }
-
-  /// {@macro riverpod.override_with_value}
-  Override overrideWithValue(PocketBaseService value) {
-    return $ProviderOverride(
-      origin: this,
-      providerOverride: $SyncValueProvider<PocketBaseService>(value),
+final pocketBaseServiceProvider =
+    AutoDisposeProvider<PocketBaseService>.internal(
+      pocketBaseService,
+      name: r'pocketBaseServiceProvider',
+      debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+          ? null
+          : _$pocketBaseServiceHash,
+      dependencies: null,
+      allTransitiveDependencies: null,
     );
-  }
-}
 
-String _$pocketBaseServiceHash() => r'4377595dd862b32814dff162538c7a2e1685fa5d';
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+typedef PocketBaseServiceRef = AutoDisposeProviderRef<PocketBaseService>;
+// ignore_for_file: type=lint
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

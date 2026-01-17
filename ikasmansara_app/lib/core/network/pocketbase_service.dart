@@ -1,3 +1,5 @@
+import 'dart:io';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pocketbase/pocketbase.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'api_endpoints.dart';
@@ -13,10 +15,15 @@ class PocketBaseService {
 
   // Initialize (dipanggil di main.dart)
   Future<void> init() async {
-    final baseUrl = dotenv.get(
+    String baseUrl = dotenv.get(
       'POCKETBASE_URL',
       fallback: 'http://127.0.0.1:8090',
     );
+
+    // Fix for Android Emulator (127.0.0.1 -> 10.0.2.2)
+    if (Platform.isAndroid && baseUrl.contains('127.0.0.1')) {
+      baseUrl = baseUrl.replaceAll('127.0.0.1', '10.0.2.2');
+    }
 
     // Configure timeout
     pb = PocketBase(baseUrl);
@@ -30,9 +37,13 @@ class PocketBaseService {
   // Token Refresh (Auto-called setiap request jika token hampir expired)
   Future<void> _refreshToken() async {
     try {
-      await pb.collection(ApiEndpoints.users).authRefresh();
+      // Timeout refresh after 5 seconds to prevent app freeze
+      await pb
+          .collection(ApiEndpoints.users)
+          .authRefresh()
+          .timeout(const Duration(seconds: 5));
     } catch (e) {
-      // Jika refresh gagal, clear auth
+      // Jika refresh gagal (atau timeout), clear auth
       pb.authStore.clear();
     }
   }
@@ -48,3 +59,8 @@ class PocketBaseService {
     pb.authStore.clear();
   }
 }
+
+// Provider to access PocketBase instance
+final pocketBaseServiceProvider = Provider<PocketBase>((ref) {
+  return PocketBaseService().pb;
+});

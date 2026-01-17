@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_icons/lucide_icons.dart';
 import '../../core/theme/app_colors.dart';
 
 class CustomBottomNavBar extends StatelessWidget {
@@ -43,9 +44,9 @@ class CustomBottomNavBar extends StatelessWidget {
             label: 'Direktori',
           ),
           NavigationDestination(
-            icon: Icon(Icons.storefront_outlined),
-            selectedIcon: Icon(Icons.storefront, color: AppColors.primary),
-            label: 'Market',
+            icon: Icon(LucideIcons.heart),
+            selectedIcon: Icon(LucideIcons.heart, color: AppColors.primary),
+            label: 'Donasi',
           ),
           NavigationDestination(
             icon: Icon(Icons.work_outline),
@@ -53,9 +54,9 @@ class CustomBottomNavBar extends StatelessWidget {
             label: 'Loker',
           ),
           NavigationDestination(
-            icon: Icon(Icons.person_outline),
-            selectedIcon: Icon(Icons.person, color: AppColors.primary),
-            label: 'Profil',
+            icon: Icon(Icons.menu),
+            selectedIcon: Icon(Icons.menu, color: AppColors.primary),
+            label: 'Lainnya',
           ),
         ],
       ),

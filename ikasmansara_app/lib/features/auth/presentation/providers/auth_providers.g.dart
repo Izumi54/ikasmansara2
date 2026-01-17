@@ -6,176 +6,92 @@ part of 'auth_providers.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: type=lint, type=warning
-
-@ProviderFor(authRemoteDataSource)
-final authRemoteDataSourceProvider = AuthRemoteDataSourceProvider._();
-
-final class AuthRemoteDataSourceProvider
-    extends
-        $FunctionalProvider<
-          AuthRemoteDataSource,
-          AuthRemoteDataSource,
-          AuthRemoteDataSource
-        >
-    with $Provider<AuthRemoteDataSource> {
-  AuthRemoteDataSourceProvider._()
-    : super(
-        from: null,
-        argument: null,
-        retry: null,
-        name: r'authRemoteDataSourceProvider',
-        isAutoDispose: true,
-        dependencies: null,
-        $allTransitiveDependencies: null,
-      );
-
-  @override
-  String debugGetCreateSourceHash() => _$authRemoteDataSourceHash();
-
-  @$internal
-  @override
-  $ProviderElement<AuthRemoteDataSource> $createElement(
-    $ProviderPointer pointer,
-  ) => $ProviderElement(pointer);
-
-  @override
-  AuthRemoteDataSource create(Ref ref) {
-    return authRemoteDataSource(ref);
-  }
-
-  /// {@macro riverpod.override_with_value}
-  Override overrideWithValue(AuthRemoteDataSource value) {
-    return $ProviderOverride(
-      origin: this,
-      providerOverride: $SyncValueProvider<AuthRemoteDataSource>(value),
-    );
-  }
-}
-
 String _$authRemoteDataSourceHash() =>
-    r'98ddb212478752873c2ad06ed8a33daadd2337be';
+    r'a91a8011b299012e611b9683a1124312783918e4';
 
+/// See also [authRemoteDataSource].
+@ProviderFor(authRemoteDataSource)
+final authRemoteDataSourceProvider =
+    AutoDisposeProvider<AuthRemoteDataSource>.internal(
+      authRemoteDataSource,
+      name: r'authRemoteDataSourceProvider',
+      debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+          ? null
+          : _$authRemoteDataSourceHash,
+      dependencies: null,
+      allTransitiveDependencies: null,
+    );
+
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+typedef AuthRemoteDataSourceRef = AutoDisposeProviderRef<AuthRemoteDataSource>;
+String _$authRepositoryHash() => r'5ea3fe363d8516b372a67524a2da1bfea56705df';
+
+/// See also [authRepository].
 @ProviderFor(authRepository)
-final authRepositoryProvider = AuthRepositoryProvider._();
+final authRepositoryProvider = AutoDisposeProvider<AuthRepository>.internal(
+  authRepository,
+  name: r'authRepositoryProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$authRepositoryHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
 
-final class AuthRepositoryProvider
-    extends $FunctionalProvider<AuthRepository, AuthRepository, AuthRepository>
-    with $Provider<AuthRepository> {
-  AuthRepositoryProvider._()
-    : super(
-        from: null,
-        argument: null,
-        retry: null,
-        name: r'authRepositoryProvider',
-        isAutoDispose: true,
-        dependencies: null,
-        $allTransitiveDependencies: null,
-      );
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+typedef AuthRepositoryRef = AutoDisposeProviderRef<AuthRepository>;
+String _$loginUserHash() => r'235705239009de0d4668ace769aa1a2523ff2f40';
 
-  @override
-  String debugGetCreateSourceHash() => _$authRepositoryHash();
-
-  @$internal
-  @override
-  $ProviderElement<AuthRepository> $createElement($ProviderPointer pointer) =>
-      $ProviderElement(pointer);
-
-  @override
-  AuthRepository create(Ref ref) {
-    return authRepository(ref);
-  }
-
-  /// {@macro riverpod.override_with_value}
-  Override overrideWithValue(AuthRepository value) {
-    return $ProviderOverride(
-      origin: this,
-      providerOverride: $SyncValueProvider<AuthRepository>(value),
-    );
-  }
-}
-
-String _$authRepositoryHash() => r'9fb3538d845a831c8d474086086bf8a0a39d1f59';
-
+/// See also [loginUser].
 @ProviderFor(loginUser)
-final loginUserProvider = LoginUserProvider._();
+final loginUserProvider = AutoDisposeProvider<LoginUser>.internal(
+  loginUser,
+  name: r'loginUserProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$loginUserHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
 
-final class LoginUserProvider
-    extends $FunctionalProvider<LoginUser, LoginUser, LoginUser>
-    with $Provider<LoginUser> {
-  LoginUserProvider._()
-    : super(
-        from: null,
-        argument: null,
-        retry: null,
-        name: r'loginUserProvider',
-        isAutoDispose: true,
-        dependencies: null,
-        $allTransitiveDependencies: null,
-      );
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+typedef LoginUserRef = AutoDisposeProviderRef<LoginUser>;
+String _$registerAlumniHash() => r'98c4849e2a1c8fd7aaf2c5a027d8d1b2f3b0ca79';
 
-  @override
-  String debugGetCreateSourceHash() => _$loginUserHash();
-
-  @$internal
-  @override
-  $ProviderElement<LoginUser> $createElement($ProviderPointer pointer) =>
-      $ProviderElement(pointer);
-
-  @override
-  LoginUser create(Ref ref) {
-    return loginUser(ref);
-  }
-
-  /// {@macro riverpod.override_with_value}
-  Override overrideWithValue(LoginUser value) {
-    return $ProviderOverride(
-      origin: this,
-      providerOverride: $SyncValueProvider<LoginUser>(value),
-    );
-  }
-}
-
-String _$loginUserHash() => r'512eb4e6b41f9807de9c23699b764ca52b5e03b4';
-
+/// See also [registerAlumni].
 @ProviderFor(registerAlumni)
-final registerAlumniProvider = RegisterAlumniProvider._();
+final registerAlumniProvider = AutoDisposeProvider<RegisterAlumni>.internal(
+  registerAlumni,
+  name: r'registerAlumniProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$registerAlumniHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
 
-final class RegisterAlumniProvider
-    extends $FunctionalProvider<RegisterAlumni, RegisterAlumni, RegisterAlumni>
-    with $Provider<RegisterAlumni> {
-  RegisterAlumniProvider._()
-    : super(
-        from: null,
-        argument: null,
-        retry: null,
-        name: r'registerAlumniProvider',
-        isAutoDispose: true,
-        dependencies: null,
-        $allTransitiveDependencies: null,
-      );
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+typedef RegisterAlumniRef = AutoDisposeProviderRef<RegisterAlumni>;
+String _$currentUserHash() => r'8fe495c41a1ecce1173e40eb467970347498a0cf';
 
-  @override
-  String debugGetCreateSourceHash() => _$registerAlumniHash();
+/// See also [currentUser].
+@ProviderFor(currentUser)
+final currentUserProvider = AutoDisposeFutureProvider<UserEntity?>.internal(
+  currentUser,
+  name: r'currentUserProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$currentUserHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
 
-  @$internal
-  @override
-  $ProviderElement<RegisterAlumni> $createElement($ProviderPointer pointer) =>
-      $ProviderElement(pointer);
-
-  @override
-  RegisterAlumni create(Ref ref) {
-    return registerAlumni(ref);
-  }
-
-  /// {@macro riverpod.override_with_value}
-  Override overrideWithValue(RegisterAlumni value) {
-    return $ProviderOverride(
-      origin: this,
-      providerOverride: $SyncValueProvider<RegisterAlumni>(value),
-    );
-  }
-}
-
-String _$registerAlumniHash() => r'0635b5ce3a1c9055be28939ce9bd9e8fa04b7dfa';
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+typedef CurrentUserRef = AutoDisposeFutureProviderRef<UserEntity?>;
+// ignore_for_file: type=lint
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

@@ -6,6 +6,7 @@ class EmptyState extends StatelessWidget {
   final String title;
   final String message;
   final String? imagePath;
+  final IconData? icon;
   final String? buttonText;
   final VoidCallback? onRetry;
 
@@ -14,6 +15,7 @@ class EmptyState extends StatelessWidget {
     required this.title,
     required this.message,
     this.imagePath,
+    this.icon,
     this.buttonText,
     this.onRetry,
   });
@@ -33,6 +35,10 @@ class EmptyState extends StatelessWidget {
                 height: 200,
                 fit: BoxFit.contain,
               ),
+              const SizedBox(height: 24),
+            ] else if (icon != null) ...[
+              // Support custom icon
+              Icon(icon, size: 64, color: AppColors.textGrey),
               const SizedBox(height: 24),
             ] else ...[
               const Icon(Icons.inbox, size: 64, color: AppColors.textGrey),
