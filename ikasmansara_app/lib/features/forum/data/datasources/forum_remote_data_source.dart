@@ -38,7 +38,7 @@ class ForumRemoteDataSourceImpl implements ForumRemoteDataSource {
 
     final records = await _pbService.pb
         .collection('posts')
-        .getList();
+        .getList(); // ERROR FIX: Reverting to plain list because 'expand' crashes if author is not Relation
 
     final currentUserId = _pbService.pb.authStore.model?.id;
 

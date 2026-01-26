@@ -25,6 +25,8 @@ import '../../features/profile/presentation/profile_screen.dart';
 import '../../features/profile/presentation/edit_profile_screen.dart';
 import '../../features/profile/presentation/ekta_screen.dart';
 import '../../features/news/presentation/news_screen.dart';
+import '../../features/profile/presentation/settings_screen.dart';
+import '../../features/profile/presentation/change_password_screen.dart';
 import '../../features/news/presentation/news_detail_screen.dart';
 import '../../features/news/data/models/news_model.dart';
 import 'scaffold_with_nav_bar.dart';
@@ -212,6 +214,18 @@ GoRouter router(Ref ref) {
             path: 'edit',
             parentNavigatorKey: rootNavigatorKey,
             builder: (context, state) => const EditProfileScreen(),
+          ),
+          GoRoute(
+            path: 'settings',
+            parentNavigatorKey: rootNavigatorKey,
+            builder: (context, state) => const SettingsScreen(),
+            routes: [
+              GoRoute(
+                path: 'change-password',
+                parentNavigatorKey: rootNavigatorKey,
+                builder: (context, state) => const ChangePasswordScreen(),
+              ),
+            ],
           ),
         ],
       ),

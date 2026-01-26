@@ -15,6 +15,11 @@ abstract class AuthRemoteDataSource {
   Future<void> logout();
   bool isAuthenticated();
   Future<UserModel?> getCurrentUser();
+  Future<void> changePassword({
+    required String oldPassword,
+    required String newPassword,
+    required String confirmPassword,
+  });
 }
 
 class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
@@ -90,6 +95,31 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       return UserModel.fromRecord(freshRecord);
     } catch (e) {
       return null;
+    }
+  }
+
+  @override
+  Future<void> changePassword({
+    required String oldPassword,
+    required String newPassword,
+    required String confirmPassword,
+  }) async {
+    final userId = _pbService.pb.authStore.model?.id;
+    if (userId == null) throw Exception('User not authenticated');
+
+    try {
+      await _pbService.pb
+          .collection('users')
+          .update(
+            userId,
+            body: {
+              'oldPassword': oldPassword,
+              'password': newPassword,
+              'passwordConfirm': confirmPassword,
+            },
+          );
+    } on ClientException catch (e) {
+      throw mapPocketBaseError(e);
     }
   }
 }

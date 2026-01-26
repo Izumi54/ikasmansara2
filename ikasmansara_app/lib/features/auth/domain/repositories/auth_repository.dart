@@ -11,4 +11,9 @@ abstract class AuthRepository {
   });
   Future<void> logout();
   Future<bool> isAuthenticated();
+  Future<void> changePassword({
+    required String oldPassword,
+    required String newPassword,
+    required String confirmPassword,
+  });
 }

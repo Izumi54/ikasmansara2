@@ -22,7 +22,7 @@ class ProfileScreen extends ConsumerWidget {
         actions: [
           IconButton(
             onPressed: () {
-              // TODO: Navigate to settings
+              context.push('/profile/settings');
             },
             icon: const Icon(Icons.settings),
           ),
