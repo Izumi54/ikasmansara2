@@ -1,4 +1,5 @@
 import 'package:pocketbase/pocketbase.dart';
+import '../../../../core/utils/image_helper.dart';
 import '../../domain/entities/alumni_entity.dart';
 
 class AlumniModel extends AlumniEntity {
@@ -13,6 +14,7 @@ class AlumniModel extends AlumniEntity {
     super.company,
     super.position,
     super.domicile,
+    super.job,
   });
 
   factory AlumniModel.fromRecord(RecordModel record) {
@@ -20,13 +22,18 @@ class AlumniModel extends AlumniEntity {
       id: record.id,
       name: record.getStringValue('name'),
       email: record.getStringValue('email'),
-      avatar: record.getStringValue('avatar'),
+      avatar: ImageHelper.getPocketBaseImageUrl(
+        collectionId: record.collectionId,
+        recordId: record.id,
+        filename: record.getStringValue('avatar'),
+      ),
       angkatan: record.getIntValue('angkatan'),
       role: record.getStringValue('role'),
       jobType: record.getStringValue('job_type'),
       company: record.getStringValue('company'),
       position: record.getStringValue('position'),
       domicile: record.getStringValue('domicile'),
+      job: record.getStringValue('job'),
     );
   }
 

@@ -8,6 +8,7 @@ import '../../features/auth/presentation/login_screen.dart';
 import '../../features/auth/presentation/register_screen.dart';
 import '../../features/home/presentation/home_screen.dart';
 import '../../features/directory/presentation/directory_screen.dart';
+import '../../features/directory/presentation/alumni_detail_screen.dart';
 import '../../features/marketplace/presentation/market_screen.dart';
 import '../../features/marketplace/presentation/add_product_screen.dart';
 import '../../features/marketplace/presentation/product_detail_screen.dart';
@@ -84,6 +85,19 @@ GoRouter router(Ref ref) {
               GoRoute(
                 path: '/directory',
                 builder: (context, state) => const DirectoryScreen(),
+                routes: [
+                  GoRoute(
+                    path: 'detail',
+                    builder: (context, state) {
+                      final alumni =
+                          state.extra
+                              as dynamic; // Using dynamic temporarily or import entity
+                      // Better to import AlumniEntity. But to avoid import errors right now if not imported:
+                      // We will add import.
+                      return AlumniDetailScreen(alumni: alumni);
+                    },
+                  ),
+                ],
               ),
             ],
           ),

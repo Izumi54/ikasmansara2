@@ -9,6 +9,7 @@ class AlumniEntity {
   final String? company;
   final String? position;
   final String? domicile;
+  final String? job;
 
   const AlumniEntity({
     required this.id,
@@ -21,15 +22,22 @@ class AlumniEntity {
     this.company,
     this.position,
     this.domicile,
+    this.job,
   });
 
   // Helper getters
   String get fullJobTitle {
-    if (position != null && company != null) {
+    // Priority: Structured data -> Simple job string -> Job Type -> '-'
+    if (position != null &&
+        company != null &&
+        position!.isNotEmpty &&
+        company!.isNotEmpty) {
       return '$position at $company';
-    } else if (position != null) {
+    } else if (position != null && position!.isNotEmpty) {
       return position!;
-    } else if (company != null) {
+    } else if (job != null && job!.isNotEmpty) {
+      return job!;
+    } else if (company != null && company!.isNotEmpty) {
       return company!;
     } else {
       return jobType ?? '-';

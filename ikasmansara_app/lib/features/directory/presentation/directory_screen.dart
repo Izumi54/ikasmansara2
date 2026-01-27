@@ -1,8 +1,10 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import '../../../../common_widgets/layout/empty_state.dart';
+import '../../../../common_widgets/cards/member_card.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/theme/app_text_styles.dart';
 import 'directory_controller.dart';
@@ -168,82 +170,14 @@ class _DirectoryScreenState extends ConsumerState<DirectoryScreen> {
                     itemBuilder: (context, index) {
                       final item = alumni[index];
                       // Use MemberCard
-                      return Container(
-                        margin: const EdgeInsets.only(bottom: 12),
-                        padding: const EdgeInsets.all(16),
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(16),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black.withValues(alpha: 0.05),
-                              blurRadius: 10,
-                              offset: const Offset(0, 4),
-                            ),
-                          ],
-                        ),
-                        child: Row(
-                          children: [
-                            CircleAvatar(
-                              radius: 28,
-                              backgroundImage: NetworkImage(
-                                // Need base URL logic here or pre-resolved URL
-                                'https://ui-avatars.com/api/?name=${item.name.replaceAll(' ', '+')}&background=random',
-                              ),
-                            ),
-                            const SizedBox(width: 16),
-                            Expanded(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    item.name,
-                                    style: AppTextStyles.bodyLarge.copyWith(
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                  Text(
-                                    'Angkatan ${item.angkatan}',
-                                    style: AppTextStyles.caption,
-                                  ),
-                                  const SizedBox(height: 4),
-                                  Container(
-                                    padding: const EdgeInsets.symmetric(
-                                      horizontal: 8,
-                                      vertical: 2,
-                                    ),
-                                    decoration: BoxDecoration(
-                                      color: AppColors.background,
-                                      borderRadius: BorderRadius.circular(4),
-                                    ),
-                                    child: Text(
-                                      item.fullJobTitle,
-                                      style: const TextStyle(
-                                        fontSize: 10,
-                                        color: AppColors.textDark,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            IconButton(
-                              icon: const Icon(
-                                LucideIcons.userPlus,
-                                color: AppColors.primary,
-                              ),
-                              onPressed: () {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(
-                                    content: Text(
-                                      'Fitur Connect akan segera hadir',
-                                    ),
-                                  ),
-                                );
-                              },
-                            ),
-                          ],
-                        ),
+                      return MemberCard(
+                        name: item.name,
+                        batch: item.angkatan.toString(),
+                        profession: item.fullJobTitle,
+                        imageUrl: item.avatar,
+                        onTap: () {
+                          context.push('/directory/detail', extra: item);
+                        },
                       );
                     },
                   );

@@ -6,6 +6,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:ikasmansara_app/core/network/api_endpoints.dart';
 import 'dart:io';
 
+import 'package:ikasmansara_app/core/utils/image_helper.dart'; // ImageHelper import
 import 'package:ikasmansara_app/features/marketplace/domain/entities/product_entity.dart';
 import 'providers/marketplace_providers.dart';
 
@@ -63,16 +64,12 @@ class _ProductDetailContent extends StatelessWidget {
   String _getImageUrl() {
     if (product.images.isEmpty) return 'https://via.placeholder.com/300';
 
-    // Construct PocketBase Image URL
-    final baseUrl = dotenv.env['POCKETBASE_URL'] ?? 'http://127.0.0.1:8090';
-
-    String effectiveBaseUrl = baseUrl;
-    // Basic fix for android emulator
-    if (Platform.isAndroid && effectiveBaseUrl.contains('127.0.0.1')) {
-      effectiveBaseUrl = effectiveBaseUrl.replaceFirst('127.0.0.1', '10.0.2.2');
-    }
-
-    return '$effectiveBaseUrl/api/files/${ApiEndpoints.products}/${product.id}/${product.images.first}';
+    return ImageHelper.getPocketBaseImageUrl(
+          collectionId: ApiEndpoints.products,
+          recordId: product.id,
+          filename: product.images.first,
+        ) ??
+        'https://via.placeholder.com/300';
   }
 
   @override
@@ -233,14 +230,25 @@ class _ContactSellerButton extends ConsumerWidget {
       ),
       child: SafeArea(
         child: ElevatedButton.icon(
-          onPressed: () {
-            ref
-                .read(contactSellerProvider)
-                .call(
-                  whatsappNumber: product.whatsapp,
-                  message:
-                      'Halo, saya tertarik dengan produk ${product.name} di Aplikasi IKA SMANSARA.',
+          onPressed: () async {
+            try {
+              await ref
+                  .read(contactSellerProvider)
+                  .call(
+                    whatsappNumber: product.whatsapp,
+                    message:
+                        'Halo, saya tertarik dengan produk ${product.name} di Aplikasi IKA SMANSARA.',
+                  );
+            } catch (e) {
+              if (context.mounted) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text('Gagal membuka WhatsApp: $e'),
+                    backgroundColor: Colors.red,
+                  ),
                 );
+              }
+            }
           },
           icon: const Icon(Icons.chat), // WhatsApp icon ideally
           label: const Text('Hubungi Penjual (WhatsApp)'),

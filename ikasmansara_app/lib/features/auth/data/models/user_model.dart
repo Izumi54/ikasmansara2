@@ -1,4 +1,5 @@
 import 'package:pocketbase/pocketbase.dart';
+import '../../../../core/utils/image_helper.dart';
 import '../../domain/entities/user_entity.dart';
 
 class UserModel extends UserEntity {
@@ -22,18 +23,16 @@ class UserModel extends UserEntity {
       id: record.id,
       email: record.getStringValue('email'),
       name: record.getStringValue('name'),
-      avatar: record.getStringValue('avatar').isNotEmpty
-          ? record.collectionId.isNotEmpty
-                ? Uri.parse(
-                    '${const String.fromEnvironment('POCKETBASE_URL', defaultValue: 'http://127.0.0.1:8090')}/api/files/${record.collectionId}/${record.id}/${record.getStringValue('avatar')}',
-                  ).toString()
-                : null
-          : null,
+      avatar: ImageHelper.getPocketBaseImageUrl(
+        collectionId: record.collectionId,
+        recordId: record.id,
+        filename: record.getStringValue('avatar'),
+      ),
       role: record.getStringValue('role'),
       isVerified: record.getBoolValue('verified'),
       angkatan: record.getIntValue('angkatan'),
       bio: record.getStringValue('bio'),
-      job: record.getStringValue('job'),
+      job: record.getStringValue('job'), // Note: this maps to 'job' field in DB
       phone: record.getStringValue('phone'),
       linkedin: record.getStringValue('linkedin'),
       instagram: record.getStringValue('instagram'),
